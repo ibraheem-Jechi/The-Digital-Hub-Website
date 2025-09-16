@@ -43,6 +43,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/buttons', function () { return view('dashboard.buttons'); });
         Route::get('/ui', function () { return view('dashboard.ui'); });
         Route::get('/404', function () { return view('dashboard.error'); });
+        Route::get('/login', function () {return view('dashboard.login');
+            
+    });
     });
 });
 

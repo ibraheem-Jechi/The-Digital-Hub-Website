@@ -1,52 +1,86 @@
-<x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
-        @csrf
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{ asset('admin/dist/styles.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+          integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+          crossorigin="anonymous">
+    <style>
+        .login {
+            background: url('{{ asset('admin/dist/images/login-new.jpeg') }}');
+        }
+    </style>
+    <title>Register</title>
+</head>
+<body class="h-screen font-sans login bg-cover">
+<div class="container mx-auto h-full flex flex-1 justify-center items-center">
+    <div class="w-full max-w-lg">
+        <div class="leading-loose">
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+            <!-- Laravel Register Form -->
+            <form method="POST" action="{{ route('register') }}" class="max-w-xl m-4 p-10 bg-white rounded shadow-xl">
+                @csrf
+                <p class="text-gray-800 font-medium text-center text-lg font-bold">Register</p>
+
+                <!-- Name -->
+                <div class="mt-2">
+                    <label class="block text-sm text-gray-600" for="name">Name</label>
+                    <input id="name" name="name" type="text" value="{{ old('name') }}" required autofocus
+                           class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded">
+                    @error('name')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <!-- Email -->
+                <div class="mt-2">
+                    <label class="block text-sm text-gray-600" for="email">Email</label>
+                    <input id="email" name="email" type="email" value="{{ old('email') }}" required
+                           class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded">
+                    @error('email')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <!-- Password -->
+                <div class="mt-2">
+                    <label class="block text-sm text-gray-600" for="password">Password</label>
+                    <input id="password" name="password" type="password" required
+                           class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded">
+                    @error('password')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mt-2">
+                    <label class="block text-sm text-gray-600" for="password_confirmation">Confirm Password</label>
+                    <input id="password_confirmation" name="password_confirmation" type="password" required
+                           class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded">
+                    @error('password_confirmation')
+                        <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span>
+                    @enderror
+                </div>
+
+                <!-- Submit Button -->
+                <div class="mt-4">
+                    <button type="submit" class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded">
+                        Register
+                    </button>
+                </div>
+
+                <!-- Already registered link -->
+                <div class="mt-4 text-center">
+                    <a href="{{ route('login') }}" class="text-sm text-blue-600 hover:text-blue-800 font-bold">
+                        Already have an account?
+                    </a>
+                </div>
+            </form>
+
         </div>
-
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    </div>
+</div>
+</body>
+</html>
