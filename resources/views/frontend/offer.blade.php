@@ -38,7 +38,7 @@
                             <div id="collapseOne" class="tab-pane fade show p-0 active">
                                 <div class="row g-4">
                                     <div class="col-md-7">
-                                        <img src="img/offer-1.jpg" class="img-fluid w-100 rounded" alt="">
+                                        <img src="{{ asset('img/english.jpeg') }}" class="img-fluid w-100 rounded" alt="">
                                     </div>
                                     <div class="col-md-5">
                                         <h1 class="display-5 mb-4">Where you improve your English </h1>
@@ -51,7 +51,7 @@
                             <div id="collapseTwo" class="tab-pane fade show p-0">
                                 <div class="row g-4">
                                     <div class="col-md-7">
-                                        <img src="img/offer-2.jpg" class="img-fluid w-100 rounded" alt="">
+                                        <img src="{{ asset('img/lifeskill.jpeg') }}" class="img-fluid w-100 rounded" alt="">
                                     </div>
                                     <div class="col-md-5">
                                         <h1 class="display-5 mb-4">Where you will be ready to a workplace</h1>
@@ -64,7 +64,7 @@
                             <div id="collapseThree" class="tab-pane fade show p-0">
                                 <div class="row g-4">
                                     <div class="col-md-7">
-                                        <img src="img/offer-3.jpg" class="img-fluid w-100 rounded" alt="">
+                                        <img src="{{ asset('img/mockinterview.jpeg') }}" class="img-fluid w-100 rounded" alt="">
                                     </div>
                                     <div class="col-md-5">
                                         <h1 class="display-5 mb-4">Tips and Tricks</h1>
@@ -77,11 +77,11 @@
                             <div id="collapseFour" class="tab-pane fade show p-0">
                                 <div class="row g-4">
                                     <div class="col-md-7">
-                                        <img src="img/offer-4.jpg" class="img-fluid w-100 rounded" alt="">
+                                        <img src="{{ asset('img/handson.jpeg') }}" class="img-fluid w-100 rounded" alt="">
                                     </div>
                                     <div class="col-md-5">
                                         <h1 class="display-5 mb-4">Hands On</h1>
-                                        <p class="mb-4"> Our programs offer you to work on a real projects to advance your digital skills as the market needs.
+                                        <p class="mb-4">Our programs give you real projects to work on that makes you ready to start your own work.
                                         </p>
                                         <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
                                     </div>

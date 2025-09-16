@@ -24,7 +24,7 @@
                                         <div><i class="fas fa-lightbulb fa-3x text-primary"></i></div>
                                         <div class="ms-4">
                                             <h4>Business Consuluting</h4>
-                                            <p>LHelping businesses grow through digital strategies and smart solutions.</p>
+                                            <p>Helping businesses grow through digital strategies and smart solutions.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -54,17 +54,8 @@
                     </div>
                     <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
                         <div class="bg-primary rounded position-relative overflow-hidden">
-                            <img src="img/about-2.png" class="img-fluid rounded w-100" alt="">
-                            
-                            <div class="" style="position: absolute; top: -15px; right: -15px;">
-                                <img src="img/about-3.png" class="img-fluid" style="width: 150px; height: 150px; opacity: 0.7;" alt="">
-                            </div>
-                            <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
-                                <img src="img/about-4.png" class="img-fluid" style="width: 100px; height: 150px; opacity: 0.9;" alt="">
-                            </div>
-                            <div class="rounded-bottom">
-                                <img src="img/about-5.jpg" class="img-fluid rounded-bottom w-100" alt="">
-                            </div>
+                            <img src="{{ asset('img/DigitalHub.jpeg') }}" class="img-fluid rounded w-100" alt="">
+                          
                         </div>
                     </div>
                 </div>

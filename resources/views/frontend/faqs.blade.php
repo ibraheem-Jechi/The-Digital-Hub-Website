@@ -72,7 +72,7 @@
                             <div class="accordion-item rounded-bottom">
                                 <h2 class="accordion-header" id="flush-headingSix">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-                                    HDo you have a transportation fees?
+                                    Do you have a transportation fees?
                                     </button>
                                 </h2>
                                 <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushSection">
@@ -83,7 +83,7 @@
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
                         <div class="bg-primary rounded">
-                            <img src="img/about-2.png" class="img-fluid w-100" alt="">
+                            <img src="{{ asset('img/asking.jpg') }}" class="img-fluid w-100" alt="">
                         </div>
                     </div>
                 </div>

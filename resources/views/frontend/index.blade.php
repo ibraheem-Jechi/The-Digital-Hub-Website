@@ -126,17 +126,8 @@
                     </div>
                     <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
                         <div class="bg-primary rounded position-relative overflow-hidden">
-                            <img src="img/about-2.png" class="img-fluid rounded w-100" alt="">
+                            <img src="{{ asset('img/DigitalHub.jpeg') }}" class="img-fluid rounded w-100" alt="">
                             
-                            <div class="" style="position: absolute; top: -15px; right: -15px;">
-                                <img src="img/about-3.png" class="img-fluid" style="width: 150px; height: 150px; opacity: 0.7;" alt="">
-                            </div>
-                            <div class="" style="position: absolute; top: -20px; left: 10px; transform: rotate(90deg);">
-                                <img src="img/about-4.png" class="img-fluid" style="width: 100px; height: 150px; opacity: 0.9;" alt="">
-                            </div>
-                            <div class="rounded-bottom">
-                                <img src="img/about-5.jpg" class="img-fluid rounded-bottom w-100" alt="">
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -327,7 +318,7 @@
                             <div id="collapseOne" class="tab-pane fade show p-0 active">
                                 <div class="row g-4">
                                     <div class="col-md-7">
-                                        <img src="img/offer-1.jpg" class="img-fluid w-100 rounded" alt="">
+                                        <img src="{{ asset('img/english.jpeg') }}" class="img-fluid w-100 rounded" alt="">
                                     </div>
                                     <div class="col-md-5">
                                         <h1 class="display-5 mb-4">Where you improve your English</h1>
@@ -340,7 +331,7 @@
                             <div id="collapseTwo" class="tab-pane fade show p-0">
                                 <div class="row g-4">
                                     <div class="col-md-7">
-                                        <img src="img/offer-2.jpg" class="img-fluid w-100 rounded" alt="">
+                                        <img src=" {{ asset('img/lifeskill.jpeg') }}" class="img-fluid w-100 rounded" alt="">
                                     </div>
                                     <div class="col-md-5">
                                         <h1 class="display-5 mb-4">Where you will be ready to a workplace</h1>
@@ -353,7 +344,7 @@
                             <div id="collapseThree" class="tab-pane fade show p-0">
                                 <div class="row g-4">
                                     <div class="col-md-7">
-                                        <img src="img/offer-3.jpg" class="img-fluid w-100 rounded" alt="">
+                                        <img src="{{ asset('img/mockinterview.jpeg') }}" class="img-fluid w-100 rounded" alt="">
                                     </div>
                                     <div class="col-md-5">
                                         <h1 class="display-5 mb-4">Tips and Tricks</h1>
@@ -366,11 +357,11 @@
                             <div id="collapseFour" class="tab-pane fade show p-0">
                                 <div class="row g-4">
                                     <div class="col-md-7">
-                                        <img src="img/offer-4.jpg" class="img-fluid w-100 rounded" alt="">
+                                        <img src="{{ asset('img/handson.jpeg') }}" class="img-fluid w-100 rounded" alt="">
                                     </div>
                                     <div class="col-md-5">
                                         <h1 class="display-5 mb-4">Hands On</h1>
-                                        <p class="mb-4">Liis, magnam illo magni error dolore unde perspiciatis tempore et totam corrupti dignissimos aut praesentium?
+                                        <p class="mb-4"> Our programs give you real projects to work on that makes you ready to start your own work.
                                         </p>
                                         <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
                                     </div>
@@ -547,7 +538,7 @@
                     </div>
                     <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
                         <div class="bg-primary rounded">
-                            <img src="img/about-2.png" class="img-fluid w-100" alt="">
+                            <img src="{{ asset('img/asking.jpg') }}" class="img-fluid w-100" alt="">
                         </div>
                     </div>
                 </div>
