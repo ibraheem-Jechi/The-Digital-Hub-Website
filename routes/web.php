@@ -49,6 +49,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Super admin role management
         Route::get('/manage-roles', [RoleController::class, 'index']);
         Route::post('/manage-roles', [RoleController::class, 'update']);
+        Route::post('/manage-roles/edit-name', [RoleController::class, 'editName']);
+        Route::post('/manage-roles/permissions', [RoleController::class, 'updatePermissions']);
+        Route::delete('/manage-roles/delete', [RoleController::class, 'destroy'])->name('roles.destroy');
     });
     });
 
