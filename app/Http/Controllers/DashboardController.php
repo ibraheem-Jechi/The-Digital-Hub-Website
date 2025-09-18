@@ -3,12 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        // For now return a simple test view (we'll replace this with AdminLTE layout in Step 2)
-        return view('dashboard.dashboard');
+        $user = Auth::user();
+        if (!$user) {
+            return redirect('/login');
+        }
+
+        return view('dashboard.dashboard', compact('user'));
     }
 }

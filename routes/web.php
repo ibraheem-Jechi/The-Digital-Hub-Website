@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,11 +44,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/buttons', function () { return view('dashboard.buttons'); });
         Route::get('/ui', function () { return view('dashboard.ui'); });
         Route::get('/404', function () { return view('dashboard.error'); });
-        Route::get('/login', function () {return view('dashboard.login');
-            
+        Route::get('/login', function () { return view('dashboard.login'); });
+
+        // Super admin role management
+        Route::get('/manage-roles', [RoleController::class, 'index']);
+        Route::post('/manage-roles', [RoleController::class, 'update']);
     });
     });
-});
 
 // Laravel auth routes (login, register, password reset, etc.)
 require __DIR__.'/auth.php';
