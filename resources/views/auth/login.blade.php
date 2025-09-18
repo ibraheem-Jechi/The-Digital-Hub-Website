@@ -70,10 +70,10 @@
             </button>
           </div>
 
-          <a href="{{ route('register') ?? '#' }}" 
+          {{-- <a href="{{ route('register') ?? '#' }}" 
              class="inline-block mt-4 text-sm text-blue-600 hover:text-blue-800 font-bold">
              Not registered?
-          </a>
+          </a> --}}
         </form>
 
       </div>
