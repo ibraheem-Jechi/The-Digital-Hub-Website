@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,44 +11,47 @@ use App\Http\Controllers\FrontController;
 |--------------------------------------------------------------------------
 */
 Route::get('/', [FrontController::class, 'index'])->name('home');
-Route::get('/about', function () { return view('frontend.about'); });
-Route::get('/index', function () { return view('frontend.index'); });
-Route::get('/services', function () { return view('frontend.services'); });
-Route::get('/blog', function () { return view('frontend.blog'); });
-Route::get('/contact', function () { return view('frontend.contact'); });
-Route::get('/features', function () { return view('frontend.features'); });
-Route::get('/team', function () { return view('frontend.team'); });
-Route::get('/testimonial', function () { return view('frontend.testimonial'); });
-Route::get('/offer', function () { return view('frontend.offer'); });
-Route::get('/FAQ', function () { return view('frontend.faqs'); });
-Route::get('/404', function () { return view('frontend.404'); });
+Route::view('/about', 'frontend.about');
+Route::view('/index', 'frontend.index');
+Route::view('/services', 'frontend.services');
+Route::view('/blog', 'frontend.blog');
+Route::view('/contact', 'frontend.contact')->name('contact.page');
+Route::view('/features', 'frontend.features');
+Route::view('/team', 'frontend.team');
+Route::view('/testimonial', 'frontend.testimonial');
+Route::view('/offer', 'frontend.offer');
+Route::view('/FAQ', 'frontend.faqs');
+Route::view('/404', 'frontend.404');
 
 /*
 |--------------------------------------------------------------------------
-| Authenticated Routes
+| Public Contact + Admin List (no auth)
+|--------------------------------------------------------------------------
+*/
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/dashboard/error', [ContactController::class, 'adminIndex'])->name('dashboard.error'); // remove middleware if you want it public
+
+/*
+|--------------------------------------------------------------------------
+| Authenticated Dashboard (optional)
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::prefix('dashboard')->group(function () {
+        Route::view('/', 'dashboard.dashboard')->name('dashboard');
+        Route::view('/forms', 'dashboard.forms');
+        Route::view('/modals', 'dashboard.modals');
+        Route::view('/tables', 'dashboard.tables');
+        Route::view('/buttons', 'dashboard.buttons');
+        Route::view('/ui', 'dashboard.ui');
+        // don’t route dashboard/error here again
+        Route::view('/login', 'dashboard.login'); // only if you actually use this view
+    });
 
-    // Profile Routes
+    // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    // Dashboard Routes - only accessible to logged-in users
-    Route::prefix('dashboard')->group(function () {
-        Route::get('/', function () { return view('dashboard.dashboard'); })->name('dashboard');
-        Route::get('/forms', function () { return view('dashboard.forms'); });
-        Route::get('/modals', function () { return view('dashboard.modals'); });
-        Route::get('/tables', function () { return view('dashboard.tables'); });
-        Route::get('/buttons', function () { return view('dashboard.buttons'); });
-        Route::get('/ui', function () { return view('dashboard.ui'); });
-        Route::get('/404', function () { return view('dashboard.error'); });
-        Route::get('/login', function () {return view('dashboard.login');
-            
-    });
-    });
 });
 
-// Laravel auth routes (login, register, password reset, etc.)
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
