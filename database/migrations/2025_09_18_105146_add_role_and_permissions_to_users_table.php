@@ -12,8 +12,12 @@ class AddRoleAndPermissionsToUsersTable extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->nullable(); 
-            $table->json('permissions')->nullable(); 
+            // Add 'role' column only if it doesn't already exist
+            if (!Schema::hasColumn('users', 'role')) {
+                $table->string('role')->nullable();
+            }
+            // Add 'permissions' column
+            $table->json('permissions')->nullable();
         });
     }
 
@@ -26,4 +30,6 @@ class AddRoleAndPermissionsToUsersTable extends Migration
             $table->dropColumn(['role', 'permissions']);
         });
     }
-};
+}
+;
+
