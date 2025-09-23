@@ -57,14 +57,24 @@
                             <span><i class="fas fa-angle-right float-right"></i></span>
                         </a>
                     </li>
-                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                                     @if(auth()->check() && auth()->user()->role === 'super_admin')
+    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+        <a href="{{ url('/dashboard/manage-roles') }}"
+           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+            <i class="fas fa-user-shield float-left mx-2"></i>
+            Manage Roles
+            <span><i class="fa fa-angle-right float-right"></i></span>
+        </a>
+    </li>
+@endif
+                    {{-- <li class="w-full h-full py-3 px-2 border-b border-light-border">
                         <a href="{{ url('/dashboard/forms') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fab fa-wpforms float-left mx-2"></i>
                             Forms
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
                         <a href="{{ url('/dashboard/buttons') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
@@ -97,14 +107,14 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
-                    <li class="w-full h-full py-3 px-2">
+                    {{-- <li class="w-full h-full py-3 px-2">
                         <a href="#"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="far fa-file float-left mx-2"></i>
                             Pages
                             <span><i class="fa fa-angle-down float-right"></i></span>
-                        </a>
-                        <ul class="list-reset -mx-2 bg-white-medium-dark">
+                        </a> --}}
+                        {{-- <ul class="list-reset -mx-2 bg-white-medium-dark">
                             <li class="border-t mt-2 border-light-border w-full h-full px-2 py-3">
                                 <a href="{{ url('/dashboard/login') }}"
                                    class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
@@ -127,7 +137,7 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
                 </ul>
 
             </aside>

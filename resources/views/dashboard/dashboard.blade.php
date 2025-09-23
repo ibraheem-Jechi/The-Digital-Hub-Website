@@ -77,14 +77,14 @@
     </li>
 @endif
 
-                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                    {{-- <li class="w-full h-full py-3 px-2 border-b border-light-border">
                         <a href="{{ url('/dashboard/forms') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fab fa-wpforms float-left mx-2"></i>
                             Forms
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
                         <a href="{{ url('/dashboard/buttons') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">

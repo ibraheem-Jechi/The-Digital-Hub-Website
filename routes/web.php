@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController; // <-- add this
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Dashboard Routes - only accessible to logged-in users
     Route::prefix('dashboard')->group(function () {
         Route::get('/', function () { return view('dashboard.dashboard'); })->name('dashboard');
-        Route::get('/forms', function () { return view('dashboard.forms'); });
         Route::get('/modals', function () { return view('dashboard.modals'); });
         Route::get('/tables', function () { return view('dashboard.tables'); });
         Route::get('/buttons', function () { return view('dashboard.buttons'); });
@@ -52,8 +52,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/manage-roles/edit-name', [RoleController::class, 'editName']);
         Route::post('/manage-roles/permissions', [RoleController::class, 'updatePermissions']);
         Route::delete('/manage-roles/delete', [RoleController::class, 'destroy'])->name('roles.destroy');
+
+        // Super admin add user form
+        Route::get('/forms', [UserController::class, 'create'])->name('forms.create');
+        Route::post('/forms', [UserController::class, 'store'])->name('forms.store');
     });
-    });
+});
 
 // Laravel auth routes (login, register, password reset, etc.)
 require __DIR__.'/auth.php';
