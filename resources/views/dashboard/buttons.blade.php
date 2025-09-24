@@ -15,6 +15,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <!--Container -->
     <div class="mx-auto bg-gray-lightest">
         <!--Screen-->
@@ -47,6 +48,36 @@
                                 </li>
                             </ul>
                         </div>
+=======
+<!--Container -->
+<div class="mx-auto bg-gray-lightest">
+    <!--Screen-->
+    <div class="min-h-screen flex flex-col">
+        <!--Header Section Starts Here-->
+        <header class="bg-nav">
+            <div class="flex justify-between">
+                <div class="p-1 mx-3 inline-flex items-center">
+                    <i class="fas fa-bars pr-2 text-white" onclick="sidebarToggle()"></i>
+                    <h1 class="text-white p-2">Logo</h1>
+                </div>
+                <div class="p-1 flex flex-row items-center">
+                   <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </x-dropdown-link>
+                        </form>
+                    <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
+                        <ul class="list-reset">
+                          <li><a href="#" class="no-underline px-4 py-2 block text-black hover:bg-gray-light">My account</a></li>
+                          <li><a href="#" class="no-underline px-4 py-2 block text-black hover:bg-gray-light">Notifications</a></li>
+                          <li><hr class="border-t mx-2 border-gray-ligght"></li>
+                          <li><a href="#" class="no-underline px-4 py-2 block text-black hover:bg-gray-light">Logout</a></li>
+                        </ul>
+>>>>>>> origin/sponsership
                     </div>
                 </div>
             </header>
@@ -410,7 +441,7 @@
                         <a href="{{ url('/dashboard/ui') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fab fa-uikit float-left mx-2"></i>
-                            Ui components
+                            Sponsorships
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>

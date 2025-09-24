@@ -25,15 +25,15 @@
                                             <p class="mb-0">Beirut Souks</p>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="contact-add-item">
-                                        <div class="contact-icon text-primary mb-4">
-                                            <i class="fas fa-envelope fa-2x"></i>
-                                        </div>
-                                        <div>
-                                            <h4>Mail Us</h4>
-                                            <p class="mb-0">F.GHADBAN@unrwa.org</p>
+                                    <div class="col-md-6">
+                                        <div class="contact-add-item">
+                                            <div class="contact-icon text-primary mb-4">
+                                                <i class="fas fa-envelope fa-2x"></i>
+                                            </div>
+                                            <div>
+                                                <h4>Mail Us</h4>
+                                                <p class="mb-0">DigitalHub@unrwa.org</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

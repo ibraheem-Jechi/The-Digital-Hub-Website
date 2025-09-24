@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Sponsorship;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -8,7 +9,8 @@ use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\ProgramController;
-
+use App\Http\Controllers\FrontController;
+use App\Http\Controllers\SponsorshipController;
 /*
 |--------------------------------------------------------------------------
 | Program CRUD Routes
@@ -18,6 +20,7 @@ Route::resource('programs', ProgramController::class);
 
 // Dashboard table page should use ProgramController@index
 Route::get('/dashboard/tables', [ProgramController::class, 'index'])->name('programs.index');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +48,28 @@ Route::get('/offer', fn() => view('frontend.offer'))->name('frontend.offer');
 Route::get('/FAQ', fn() => view('frontend.faqs'))->name('frontend.faqs');
 Route::get('/404', fn() => view('frontend.404'))->name('frontend.404');
 
+// Home page with sponsorships
+// Route::get('/', function () {
+//     $sponsorships = Sponsorship::all();
+//     return view('frontend.index', compact('sponsorships'));
+// })->name('home');
+
+// About page with sponsorships
+Route::get('/about', function () {
+    $sponsorships = Sponsorship::all();
+    return view('frontend.about', compact('sponsorships'));
+});
+
+
+// Route::get('/services', function () { return view('frontend.services'); });
+// Route::get('/blog', function () { return view('frontend.blog'); });
+// Route::get('/contact', function () { return view('frontend.contact'); });
+
+// Features page - pass sponsorships
+Route::get('/features', function () {
+    $sponsorships = Sponsorship::all();
+    return view('frontend.features', compact('sponsorships'));
+});
 /*
 |--------------------------------------------------------------------------
 | Public Contact + Admin List (no auth)
@@ -72,6 +97,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // Dashboard Workshops CRUD
         Route::resource('workshops', WorkshopController::class);
+
+        /*
+        |--------------------------------------------------------------------------
+        | Sponsorship Routes (form + table in dashboard)
+        |--------------------------------------------------------------------------
+        */
+        Route::get('/ui', [SponsorshipController::class, 'ui'])->name('dashboard.ui');   // Show form + table
+        Route::post('/sponsorships', [SponsorshipController::class, 'store'])->name('sponsorships.store');
+        Route::put('/sponsorships/{id}', [SponsorshipController::class, 'update'])->name('sponsorships.update');
+        Route::delete('/sponsorships/{id}', [SponsorshipController::class, 'destroy'])->name('sponsorships.destroy');
+        Route::get('/sponsorships/{id}/edit', [SponsorshipController::class, 'edit'])->name('sponsorships.edit');
+
+        // Public sponsorships (frontend display)
+        Route::get('/sponsors', [SponsorshipController::class, 'publicIndex'])->name('sponsors.public');
 
         // Super admin role management
         Route::get('/manage-roles', [RoleController::class, 'index']);

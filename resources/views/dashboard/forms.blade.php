@@ -104,7 +104,7 @@
                         <a href="{{ url('/dashboard/ui') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fab fa-uikit float-left mx-2"></i>
-                            Ui components
+                            Sponsorships
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>

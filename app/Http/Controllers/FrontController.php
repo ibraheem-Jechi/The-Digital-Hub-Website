@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TeamMember;
+use App\Models\Sponsorship; // <- import the model
 
 use App\Models\Program;
 class FrontController extends Controller
@@ -13,8 +14,9 @@ class FrontController extends Controller
 {
     $teamMembers = TeamMember::all();
     $programs = Program::latest()->get();
+             $sponsorships = Sponsorship::all();
 
-    return view('frontend.index', compact('programs', 'teamMembers'));
+    return view('frontend.index', compact('programs', 'teamMembers','sponsorships'));
 }
 
     // Team page
@@ -79,6 +81,9 @@ class FrontController extends Controller
         return view('frontend.404');
     }
        
-    }
+    
 
+
+
+}
 
