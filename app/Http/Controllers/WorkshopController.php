@@ -8,17 +8,24 @@ use Illuminate\Support\Facades\Storage;
 
 class WorkshopController extends Controller
 {
-    // Display all workshops
+    // Frontend: show workshops in blog page
+    public function workshops()
+    {
+        $workshops = Workshop::latest()->get();
+        return view('frontend.blog', compact('workshops'));
+    }
+
+    // Dashboard: list all workshops
     public function index()
     {
         $workshops = Workshop::all();
-        return view('workshops.index', compact('workshops'));
+        return view('dashboard.workshops', compact('workshops'));
     }
 
     // Show form to create a new workshop
     public function create()
     {
-        return view('workshops.create');
+        return view('dashboard.workshops-create');
     }
 
     // Store a new workshop
@@ -47,18 +54,11 @@ class WorkshopController extends Controller
         return redirect()->route('workshops.index')->with('success', 'Workshop created successfully.');
     }
 
-    // Show a single workshop
-    public function show($id)
-    {
-        $workshop = Workshop::findOrFail($id);
-        return view('workshops.show', compact('workshop'));
-    }
-
     // Show form to edit a workshop
     public function edit($id)
     {
         $workshop = Workshop::findOrFail($id);
-        return view('workshops.edit', compact('workshop'));
+        return view('dashboard.workshops-edit', compact('workshop'));
     }
 
     // Update a workshop
@@ -79,7 +79,6 @@ class WorkshopController extends Controller
         $workshop->program_id = $request->program_id;
 
         if ($request->hasFile('image')) {
-            // Delete old image if exists
             if ($workshop->image) {
                 Storage::disk('public')->delete($workshop->image);
             }
@@ -95,14 +94,10 @@ class WorkshopController extends Controller
     public function destroy($id)
     {
         $workshop = Workshop::findOrFail($id);
-
-        // Delete image if exists
         if ($workshop->image) {
             Storage::disk('public')->delete($workshop->image);
         }
-
         $workshop->delete();
-
         return redirect()->route('workshops.index')->with('success', 'Workshop deleted successfully.');
     }
 }

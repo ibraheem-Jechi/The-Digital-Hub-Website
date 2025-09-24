@@ -34,4 +34,7 @@ class Workshop extends Model
     {
         return $this->belongsTo(Program::class, 'program_id', 'program_id');
     }
+    protected $casts = [
+        'event_date' => 'datetime:Y-m-d', // This will convert to Carbon automatically
+    ];
 }
