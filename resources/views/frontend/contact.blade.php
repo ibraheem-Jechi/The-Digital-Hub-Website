@@ -32,7 +32,7 @@
                                             </div>
                                             <div>
                                                 <h4>Mail Us</h4>
-                                                <p class="mb-0">F.GHADBAN@unrwa.org</p>
+                                                <p class="mb-0">DigitalHub@unrwa.org</p>
                                             </div>
                                         </div>
                                     </div>

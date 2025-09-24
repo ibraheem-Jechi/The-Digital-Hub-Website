@@ -6,35 +6,7 @@
 </div>
 <!-- Spinner End -->
 
-<!-- Topbar Start -->
-<div class="container-fluid topbar bg-light px-5 d-none d-lg-block">
-    <div class="row gx-0 align-items-center">
-        <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
-            <div class="d-flex flex-wrap">
-                <a href="#" class="text-muted small me-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>Beirut Souks</a>
-                <a href="tel:+01234567890" class="text-muted small me-4"><i class="fas fa-phone-alt text-primary me-2"></i>(+961) 81 079 029</a>
-                <a href="mailto:example@gmail.com" class="text-muted small me-0"><i class="fas fa-envelope text-primary me-2"></i>F.GHADBAN@unrwa.org</a>
-            </div>
-        </div>
-        <div class="col-lg-4 text-center text-lg-end">
-            <div class="d-inline-flex align-items-center" style="height: 45px;">
-                <a href="#"><small class="me-3 text-dark"><i class="fa fa-user text-primary me-2"></i>Register</small></a>
-                <a href="#"><small class="me-3 text-dark"><i class="fa fa-sign-in-alt text-primary me-2"></i>Login</small></a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-toggle text-dark" data-bs-toggle="dropdown"><small><i class="fa fa-home text-primary me-2"></i> My Dashboard</small></a>
-                    <div class="dropdown-menu rounded">
-                        <a href="#" class="dropdown-item"><i class="fas fa-user-alt me-2"></i> My Profile</a>
-                        <a href="#" class="dropdown-item"><i class="fas fa-comment-alt me-2"></i> Inbox</a>
-                        <a href="#" class="dropdown-item"><i class="fas fa-bell me-2"></i> Notifications</a>
-                        <a href="#" class="dropdown-item"><i class="fas fa-cog me-2"></i> Account Settings</a>
-                        <a href="#" class="dropdown-item"><i class="fas fa-power-off me-2"></i> Log Out</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Topbar End -->
+
 
 <!-- Navbar & Hero Start -->
 <div class="container-fluid position-relative p-0">
@@ -58,7 +30,7 @@
                     <div class="dropdown-menu m-0">
                         <a href="{{ url('/features') }}" class="dropdown-item {{ Request::is('features') ? 'active' : '' }}">Our Sponsors</a>
                         <a href="{{ url('/team') }}" class="dropdown-item {{ Request::is('team') ? 'active' : '' }}">Our Team</a>
-                        <a href="{{ url('/testimonial') }}" class="dropdown-item {{ Request::is('testimonial') ? 'active' : '' }}">Testimonial</a>
+                        
                         <a href="{{ url('/offer') }}" class="dropdown-item {{ Request::is('offer') ? 'active' : '' }}">Our Offer</a>
                         <a href="{{ url('/FAQ') }}" class="dropdown-item {{ Request::is('FAQ') ? 'active' : '' }}">FAQs</a>
                         <a href="{{ url('/404') }}" class="dropdown-item {{ Request::is('404') ? 'active' : '' }}">404 Page</a>
@@ -66,7 +38,7 @@
                 </div>
                 <a href="{{ url('/contact') }}" class="nav-item nav-link {{ Request::is('contact') ? 'active' : '' }}">Contact Us</a>
             </div>
-            <a href="#" class="btn btn-primary rounded-pill py-2 px-4 my-3 my-lg-0 flex-shrink-0">Get Started</a>
+            
         </div>
     </nav>
 
