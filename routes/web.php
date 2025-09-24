@@ -8,6 +8,17 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WorkshopController;
+use App\Http\Controllers\ProgramController;
+use App\Models\Program;
+/*
+|--------------------------------------------------------------------------
+| Program CRUD Routes
+|--------------------------------------------------------------------------
+*/
+Route::resource('programs', ProgramController::class);
+
+// Dashboard table page should use ProgramController@index
+Route::get('/dashboard/tables', [ProgramController::class, 'index'])->name('programs.index');
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +92,30 @@ Route::get('/404', function () {
 
 // Frontend Workshops/Blog page
 Route::get('/workshops', [WorkshopController::class, 'workshops'])->name('frontend.workshops');
+Route::get('/about', fn() => view('frontend.about'));
+// Route::get('/index', fn() => view('frontend.index'));
+
+Route::get('/services', [ProgramController::class, 'indexpublic']);
+
+
+
+// Route::get('/services', function () {
+//     $programs = Program::latest()->get();
+//     return view('frontend.services', compact('programs'));
+// });
+
+// Route::get('/index', function () {
+//     $programs = Program::latest()->get();
+//     return view('frontend.index', compact('programs'));
+// });
+Route::get('/blog', fn() => view('frontend.blog'));
+Route::get('/contact', fn() => view('frontend.contact'));
+Route::get('/features', fn() => view('frontend.features'));
+Route::get('/team', fn() => view('frontend.team'));
+Route::get('/testimonial', fn() => view('frontend.testimonial'));
+Route::get('/offer', fn() => view('frontend.offer'));
+Route::get('/FAQ', fn() => view('frontend.faqs'));
+Route::get('/404', fn() => view('frontend.404'));
 
 /*
 |--------------------------------------------------------------------------
@@ -100,7 +135,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::view('/', 'dashboard.dashboard')->name('dashboard');
         Route::view('/forms', 'dashboard.forms');
         Route::view('/modals', 'dashboard.modals');
-        Route::view('/tables', 'dashboard.tables');
+        
         Route::view('/buttons', 'dashboard.buttons');
         Route::view('/ui', 'dashboard.ui');
         // don’t route dashboard/error here again
@@ -116,7 +151,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('dashboard')->group(function () {
         Route::get('/', function () { return view('dashboard.dashboard'); })->name('dashboard');
         Route::get('/modals', function () { return view('dashboard.modals'); });
-        Route::get('/tables', function () { return view('dashboard.tables'); });
+       
         Route::get('/buttons', function () { return view('dashboard.buttons'); });
         Route::get('/ui', function () { return view('dashboard.ui'); });
         Route::get('/404', function () { return view('dashboard.error'); });
@@ -131,9 +166,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/modals', function () {
             return view('dashboard.modals');
         });
-        Route::get('/tables', function () {
-            return view('dashboard.tables');
-        });
+        
         Route::get('/buttons', function () {
             return view('dashboard.buttons');
         });
@@ -149,6 +182,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         // Dashboard Workshops CRUD routes
         Route::resource('workshops', WorkshopController::class);
+        Route::get('/', fn() => view('dashboard.dashboard'))->name('dashboard');
+        Route::get('/forms', fn() => view('dashboard.forms'));
+        Route::get('/modals', fn() => view('dashboard.modals'));
+        // ❌ removed the old tables view-only route
+        Route::get('/buttons', fn() => view('dashboard.buttons'));
+        Route::get('/ui', fn() => view('dashboard.ui'));
+        Route::get('/404', fn() => view('dashboard.error'));
+        Route::get('/login', fn() => view('dashboard.login'));
 
         // Super admin role management
         Route::get('/manage-roles', [RoleController::class, 'index']);
