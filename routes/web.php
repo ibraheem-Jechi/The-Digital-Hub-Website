@@ -25,12 +25,13 @@ Route::get('/about', function () {
     return view('frontend.about', compact('sponsorships'));
 });
 
+// Other public pages
 Route::get('/index', function () { return view('frontend.index'); });
 Route::get('/services', function () { return view('frontend.services'); });
 Route::get('/blog', function () { return view('frontend.blog'); });
 Route::get('/contact', function () { return view('frontend.contact'); });
 
-// Features page - pass sponsorships
+// Features page with sponsorships
 Route::get('/features', function () {
     $sponsorships = Sponsorship::all();
     return view('frontend.features', compact('sponsorships'));
@@ -68,16 +69,27 @@ Route::middleware(['auth', 'verified'])->group(function () {
         | Sponsorship Routes (form + table in dashboard)
         |--------------------------------------------------------------------------
         */
-        Route::get('/ui', [SponsorshipController::class, 'ui'])->name('dashboard.ui');   // Show form + table
+
+        // Show dashboard sponsorships table
+        Route::get('/sponsorships', [SponsorshipController::class, 'index'])->name('sponsorships.index');
+
+        // Show UI (form + table together)
+        Route::get('/ui', [SponsorshipController::class, 'ui'])->name('dashboard.ui');
+
+        // CRUD routes
         Route::post('/sponsorships', [SponsorshipController::class, 'store'])->name('sponsorships.store');
+        Route::get('/sponsorships/{id}/edit', [SponsorshipController::class, 'edit'])->name('sponsorships.edit');
         Route::put('/sponsorships/{id}', [SponsorshipController::class, 'update'])->name('sponsorships.update');
         Route::delete('/sponsorships/{id}', [SponsorshipController::class, 'destroy'])->name('sponsorships.destroy');
-        Route::get('/sponsorships/{id}/edit', [SponsorshipController::class, 'edit'])->name('sponsorships.edit');
 
-        // Public sponsorships (frontend display)
+        // Public sponsorships page (frontend display, optional)
         Route::get('/sponsors', [SponsorshipController::class, 'publicIndex'])->name('sponsors.public');
 
-        // Super admin role management
+        /*
+        |--------------------------------------------------------------------------
+        | Role Management (Super Admin)
+        |--------------------------------------------------------------------------
+        */
         Route::get('/manage-roles', [RoleController::class, 'index']);
         Route::post('/manage-roles', [RoleController::class, 'update']);
         Route::post('/manage-roles/edit-name', [RoleController::class, 'editName']);
