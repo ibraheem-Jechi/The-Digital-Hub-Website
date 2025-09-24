@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController; 
 use App\Http\Controllers\TeamMemberController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,12 +47,30 @@ Route::get('/team', [FrontController::class, 'team'])->name('team.public');
 
 /*
 |--------------------------------------------------------------------------
-| Authenticated Routes
+| Public Contact + Admin List (no auth)
+|--------------------------------------------------------------------------
+*/
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/dashboard/error', [ContactController::class, 'adminIndex'])->name('dashboard.error'); // remove middleware if you want it public
+
+/*
+|--------------------------------------------------------------------------
+| Authenticated Dashboard (optional)
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::prefix('dashboard')->group(function () {
+        Route::view('/', 'dashboard.dashboard')->name('dashboard');
+        Route::view('/forms', 'dashboard.forms');
+        Route::view('/modals', 'dashboard.modals');
+        Route::view('/tables', 'dashboard.tables');
+        Route::view('/buttons', 'dashboard.buttons');
+        Route::view('/ui', 'dashboard.ui');
+        // don’t route dashboard/error here again
+        Route::view('/login', 'dashboard.login'); // only if you actually use this view
+    });
 
-    // Profile Routes
+    // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

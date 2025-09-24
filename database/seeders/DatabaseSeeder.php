@@ -2,16 +2,20 @@
 
 namespace Database\Seeders;
 
+<<<<<<< HEAD
 use App\Models\User;
+=======
+>>>>>>> origin/contact-us
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
+<<<<<<< HEAD
         // Check if Bob already exists
         if (!User::where('email', 'bob@gmail.com')->exists()) {
             User::factory()->create([
@@ -55,5 +59,25 @@ class DatabaseSeeder extends Seeder
                 'permissions' => null
             ]);
         }
+=======
+        // Ensure roles exist (idempotent)
+        $super = Role::firstOrCreate(['name' => 'super-admin', 'guard_name' => 'web']);
+        $admin = Role::firstOrCreate(['name' => 'admin', 'guard_name' => 'web']);
+
+        // Create users
+        $superUser = User::firstOrCreate(
+            ['email' => 'superadmin@example.com'],
+            ['name' => 'Super Admin', 'password' => Hash::make('superadmin123')]
+        );
+
+        $adminUser = User::firstOrCreate(
+            ['email' => 'admin@example.com'],
+            ['name' => 'Admin User', 'password' => Hash::make('admin123')]
+        );
+
+        // Assign roles
+        $superUser->assignRole($super); // or ->assignRole('super-admin')
+        $adminUser->assignRole($admin); // or ->assignRole('admin')
+>>>>>>> origin/contact-us
     }
 }
