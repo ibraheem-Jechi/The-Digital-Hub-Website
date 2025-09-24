@@ -4,25 +4,42 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController; // <-- add this
+use App\Http\Controllers\UserController; 
+use App\Http\Controllers\TeamMemberController;
 
 /*
 |--------------------------------------------------------------------------
 | Public Frontend Routes
 |--------------------------------------------------------------------------
 */
-Route::get('/', [FrontController::class, 'index'])->name('home');
-Route::get('/about', function () { return view('frontend.about'); });
-Route::get('/index', function () { return view('frontend.index'); });
-Route::get('/services', function () { return view('frontend.services'); });
-Route::get('/blog', function () { return view('frontend.blog'); });
-Route::get('/contact', function () { return view('frontend.contact'); });
-Route::get('/features', function () { return view('frontend.features'); });
-Route::get('/team', function () { return view('frontend.team'); });
-Route::get('/testimonial', function () { return view('frontend.testimonial'); });
-Route::get('/offer', function () { return view('frontend.offer'); });
-Route::get('/FAQ', function () { return view('frontend.faqs'); });
-Route::get('/404', function () { return view('frontend.404'); });
+// Public frontend routes
+Route::controller(FrontController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('/index', 'index')->name('frontend.index');
+    Route::get('/about', 'about')->name('frontend.about');
+    Route::get('/services', 'services')->name('frontend.services');
+    Route::get('/blog', 'blog')->name('frontend.blog');
+    Route::get('/contact', 'contact')->name('frontend.contact');
+    Route::get('/features', 'features')->name('frontend.features');
+    Route::get('/testimonial', 'testimonial')->name('frontend.testimonial');
+    Route::get('/offer', 'offer')->name('frontend.offer');
+    Route::get('/FAQ', 'faqs')->name('frontend.faqs');
+    Route::get('/404', 'error404')->name('frontend.404');
+});
+
+// Route::get('/', [FrontController::class, 'index'])->name('home');
+// Route::get('/about', function () { return view('frontend.about'); });
+// Route::get('/index', function () { return view('frontend.index'); });
+
+// Route::get('/services', function () { return view('frontend.services'); });
+// Route::get('/blog', function () { return view('frontend.blog'); });
+// Route::get('/contact', function () { return view('frontend.contact'); });
+// Route::get('/features', function () { return view('frontend.features'); });
+// Route::get('/team', [TeamMemberController::class, 'publicIndex'])->name('team.public');
+// Route::get('/testimonial', function () { return view('frontend.testimonial'); });
+// Route::get('/offer', function () { return view('frontend.offer'); });
+// Route::get('/FAQ', function () { return view('frontend.faqs'); });
+// Route::get('/404', function () { return view('frontend.404'); });
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +78,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 // Laravel auth routes (login, register, password reset, etc.)
 require __DIR__.'/auth.php';
+Route::middleware(['auth', 'verified'])->group(function () {
+
+    // Team members - Dashboard CRUD
+    Route::get('/dashboard/team', [TeamMemberController::class, 'index'])->name('team.index');          // View all team members
+    Route::get('/dashboard/team/create', [TeamMemberController::class, 'create'])->name('team.create'); // Show form to add
+    Route::post('/dashboard/team', [TeamMemberController::class, 'store'])->name('team.store');         // Store new member
+    Route::get('/dashboard/team/{id}/edit', [TeamMemberController::class, 'edit'])->name('team.edit');  // Show edit form
+    Route::put('/dashboard/team/{id}', [TeamMemberController::class, 'update'])->name('team.update');   // Update member
+    Route::delete('/dashboard/team/{id}', [TeamMemberController::class, 'destroy'])->name('team.destroy'); // Delete member
+});

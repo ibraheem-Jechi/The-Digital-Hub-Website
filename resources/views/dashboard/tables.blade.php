@@ -75,14 +75,14 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li> --}}
-                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                        <a href="{{ url('/dashboard/buttons') }}"
-                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                            <i class="fab fa-wpforms float-left mx-2"></i>
-                            Buttons
+                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                <a href="{{ route('team.index') }}" class="text-sm text-nav-item no-underline">
+                    <i class="fas fa-users float-left mx-2"></i>
+                                Team Members
+                            </a>
                             <span><i class="fa fa-angle-right float-right"></i></span>
-                        </a>
-                    </li>
+                        </li>
+
                     <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
                        <a href="{{ url('/dashboard/tables') }}"
                             class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
