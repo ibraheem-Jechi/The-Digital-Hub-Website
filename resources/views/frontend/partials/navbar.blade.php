@@ -58,7 +58,7 @@
                     <div class="dropdown-menu m-0">
                         <a href="{{ url('/features') }}" class="dropdown-item {{ Request::is('features') ? 'active' : '' }}">Our Sponsors</a>
                         <a href="{{ url('/team') }}" class="dropdown-item {{ Request::is('team') ? 'active' : '' }}">Our Team</a>
-                        <a href="{{ url('/testimonial') }}" class="dropdown-item {{ Request::is('testimonial') ? 'active' : '' }}">Testimonial</a>
+                        {{-- <a href="{{ url('/testimonial') }}" class="dropdown-item {{ Request::is('testimonial') ? 'active' : '' }}">Testimonial</a> --}}
                         <a href="{{ url('/offer') }}" class="dropdown-item {{ Request::is('offer') ? 'active' : '' }}">Our Offer</a>
                         <a href="{{ url('/FAQ') }}" class="dropdown-item {{ Request::is('FAQ') ? 'active' : '' }}">FAQs</a>
                         <a href="{{ url('/404') }}" class="dropdown-item {{ Request::is('404') ? 'active' : '' }}">404 Page</a>

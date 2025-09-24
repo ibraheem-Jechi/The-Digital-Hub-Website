@@ -9,7 +9,25 @@
 @section('content')
       
 
-     
+     <style>
+/* Active / Expanded accordion button */
+.accordion-button:not(.collapsed) {
+    background-color: #0d6efd; /* Bootstrap primary blue */
+    color: #fff;                /* White text */
+    box-shadow: none;           /* Remove default shadow */
+}
+
+/* Optional: keep the arrow white */
+.accordion-button:not(.collapsed)::after {
+    filter: invert(1);
+}
+
+/* Ensure collapsed state looks good */
+.accordion-button {
+    background-color: #f8f9fa; /* Light grey */
+    color: #000;                /* Black text */
+}
+</style>
 
             <!-- Carousel Start -->
             <div class="header-carousel owl-carousel">
@@ -26,7 +44,9 @@
                                         <p class="mb-5 fs-5">Several programming languages that shape your future will be taught to you.
                                         </p>
                                         <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
-                                            <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
+<a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" data-bs-toggle="modal" data-bs-target="#videoModal">
+    <i class="fas fa-play-circle me-2"></i> Watch Video
+</a>
                                             <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-center justify-content-md-end">
@@ -56,8 +76,9 @@
                                         <p class="mb-5 fs-5">Several programming languages that shape your future will be taught to you.
                                         </p>
                                         <div class="d-flex justify-content-center flex-shrink-0 mb-4">
-                                            <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                            <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+<a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" data-bs-toggle="modal" data-bs-target="#videoModal">
+    <i class="fas fa-play-circle me-2"></i> Watch Video
+</a>                                            <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
                                         </div>
                                         <div class="d-flex align-items-center justify-content-center">
                                             <h2 class="text-white me-2">Follow Us:</h2>
@@ -548,90 +569,11 @@
 
 
         <!-- Team Start -->
-        <div class="container-fluid team pb-5">
-            <div class="container pb-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Our Team</h4>
-                    <h1 class="display-5 mb-4">Meet The Mentors & Managers</h1>
-                    <p class="mb-0">The mentors have a deep understanding of the programs and strong expertise, supported by managers with exceptional organizational and management abilities.
-                    </p>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="team-title">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="team-icon">
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-2.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="team-title">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="team-icon">
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-3.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="team-title">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="team-icon">
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                        <div class="team-item">
-                            <div class="team-img">
-                                <img src="img/team-4.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="team-title">
-                                <h4 class="mb-0">David James</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="team-icon">
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        @include('frontend.partials.team')
         <!-- Team End -->
 
         <!-- Testimonial Start -->
-        <div class="container-fluid testimonial pb-5">
+        {{-- <div class="container-fluid testimonial pb-5">
             <div class="container pb-5">
                 <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
                     <h4 class="text-primary">Students’ Testimonials</h4>
@@ -754,9 +696,30 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Testimonial End -->
+<!-- Video Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0">
+        <div class="ratio ratio-16x9">
+          <iframe id="videoFrame" src="https://www.youtube.com/embed/1lp7h_IUxU8?autoplay=1" title="Lionel Messi - 50+ Moments Impossible To Forget" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<script>
+    var videoModal = document.getElementById('videoModal');
+    var videoFrame = document.getElementById('videoFrame');
+
+    videoModal.addEventListener('hidden.bs.modal', function () {
+        // Stop the video when modal is closed
+        videoFrame.src = videoFrame.src;
+    });
+</script>
 @endsection
 
 

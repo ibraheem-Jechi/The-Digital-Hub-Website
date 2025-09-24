@@ -16,6 +16,9 @@ use App\Http\Controllers\TeamMemberController;
 Route::controller(FrontController::class)->group(function () {
     Route::get('/', 'index')->name('home');
     Route::get('/index', 'index')->name('frontend.index');
+    // Public Team Page
+Route::get('/team', [FrontController::class, 'team'])->name('team.public');
+
     Route::get('/about', 'about')->name('frontend.about');
     Route::get('/services', 'services')->name('frontend.services');
     Route::get('/blog', 'blog')->name('frontend.blog');

@@ -10,13 +10,21 @@ class FrontController extends Controller
     // Home page
     public function index()
     {
-        return view('frontend.index');
+        // Load team members for the homepage
+        $teamMembers = TeamMember::all();
+        return view('frontend.index', compact('teamMembers'));
+    }
+
+    // Team page
+    public function team()
+    {
+        $teamMembers = TeamMember::all();
+        return view('frontend.team', compact('teamMembers'));
     }
 
     // About page
     public function about()
     {
-        // If you need team members here, you can pass them
         $teamMembers = TeamMember::all();
         return view('frontend.about', compact('teamMembers'));
     }
@@ -69,4 +77,3 @@ class FrontController extends Controller
         return view('frontend.404');
     }
 }
-
