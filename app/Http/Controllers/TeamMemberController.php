@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TeamMember;
+use App\Models\Program; // added to fetch programs for frontend
 use Illuminate\Support\Facades\Storage;
 
 class TeamMemberController extends Controller
 {
+    // ========================
+    // DASHBOARD METHODS
+    // ========================
+
     // List all team members (dashboard)
     public function index()
     {
@@ -21,14 +26,13 @@ class TeamMemberController extends Controller
         return view('dashboard.team.create');
     }
 
-    
     // Store new member
     public function store(Request $request)
     {
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'photo' => 'nullable|image|max:2048', // max 2MB
+            'photo' => 'nullable|image|max:2048',
         ]);
 
         $data = $request->only('name', 'description');
@@ -63,7 +67,6 @@ class TeamMemberController extends Controller
         $data = $request->only('name', 'description');
 
         if ($request->hasFile('photo')) {
-            // Delete old photo if exists
             if ($teamMember->photo) {
                 Storage::disk('public')->delete($teamMember->photo);
             }
@@ -87,5 +90,27 @@ class TeamMemberController extends Controller
         $teamMember->delete();
 
         return redirect()->route('team.index')->with('success', 'Team member deleted successfully!');
+    }
+
+    // ========================
+    // FRONTEND METHODS
+    // ========================
+
+    // Frontend homepage
+    public function frontendIndex()
+    {
+        $teamMembers = TeamMember::all();
+        $programs = Program::latest()->get();
+
+        return view('frontend.index', compact('teamMembers', 'programs'));
+    }
+
+    // Frontend about page
+    public function frontendAbout()
+    {
+        $teamMembers = TeamMember::all();
+        $programs = Program::latest()->get();
+
+        return view('frontend.about', compact('teamMembers', 'programs'));
     }
 }
