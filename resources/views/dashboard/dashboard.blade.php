@@ -153,7 +153,7 @@
             </aside>
             <!--/Sidebar-->
             <!--Main-->
-            <main class="bg-white-300 flex-1 p-3 overflow-hidden">
+            {{-- <main class="bg-white-300 flex-1 p-3 overflow-hidden">
 
                 <div class="flex flex-col">
                     <!-- Stats Row Starts Here -->
@@ -403,7 +403,7 @@
                     </div>
                     <!--/Profile Tabs-->
                 </div>
-            </main>
+            </main> --}}
             <!--/Main-->
         </div>
         <!--Footer-->
