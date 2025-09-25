@@ -48,7 +48,13 @@ Route::get('/workshops', [WorkshopController::class, 'workshops'])->name('fronte
 
 // Other static frontend pages
 Route::get('/contact', fn() => view('frontend.contact'))->name('frontend.contact');
-Route::get('/features', fn() => view('frontend.features'))->name('frontend.features');
+
+// ✅ Fixed /features route to include sponsorships
+Route::get('/features', function () {
+    $sponsorships = Sponsorship::all();
+    return view('frontend.features', compact('sponsorships'));
+})->name('frontend.features');
+
 Route::get('/testimonial', fn() => view('frontend.testimonial'))->name('frontend.testimonial');
 Route::get('/offer', fn() => view('frontend.offer'))->name('frontend.offer');
 Route::get('/FAQ', fn() => view('frontend.faqs'))->name('frontend.faqs');
