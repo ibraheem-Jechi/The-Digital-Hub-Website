@@ -8,6 +8,9 @@ use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\ProgramController;
+use App\Http\Controllers\SponsorshipController;
+use App\Models\Sponsorship;
+use App\Models\TeamMember;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +18,6 @@ use App\Http\Controllers\ProgramController;
 |--------------------------------------------------------------------------
 */
 Route::resource('programs', ProgramController::class);
-
-// Dashboard table page should use ProgramController@index
 Route::get('/dashboard/tables', [ProgramController::class, 'index'])->name('programs.index');
 
 /*
@@ -25,15 +26,23 @@ Route::get('/dashboard/tables', [ProgramController::class, 'index'])->name('prog
 |--------------------------------------------------------------------------
 */
 
-// Frontend homepage, about, and team pages using controller
+// Homepage
 Route::get('/', [TeamMemberController::class, 'frontendIndex'])->name('frontend.index');
-Route::get('/about', [TeamMemberController::class, 'frontendAbout'])->name('frontend.about');
-Route::get('/team', [TeamMemberController::class, 'frontendIndex'])->name('team.public'); // or create separate method if needed
 
-// Frontend services/programs
+// About page with sponsors + team members
+Route::get('/about', function () {
+    $sponsorships = Sponsorship::all();
+    $teamMembers = TeamMember::all();
+    return view('frontend.about', compact('sponsorships', 'teamMembers'));
+})->name('frontend.about');
+
+// Team page
+Route::get('/team', [TeamMemberController::class, 'frontendteam'])->name('team.public'); 
+
+// Services
 Route::get('/services', [ProgramController::class, 'indexpublic'])->name('frontend.services');
 
-// Frontend workshops/blog
+// Workshops / Blog
 Route::get('/blog', [WorkshopController::class, 'workshops'])->name('frontend.workshops');
 Route::get('/workshops', [WorkshopController::class, 'workshops'])->name('frontend.workshops');
 
@@ -60,18 +69,24 @@ Route::get('/dashboard/error', [ContactController::class, 'adminIndex'])->name('
 */
 Route::middleware(['auth', 'verified'])->group(function () {
 
-    // Dashboard main pages
     Route::prefix('dashboard')->group(function () {
         Route::view('/', 'dashboard.dashboard')->name('dashboard');
         Route::view('/forms', 'dashboard.forms');
         Route::view('/modals', 'dashboard.modals');
         Route::view('/buttons', 'dashboard.buttons');
-        Route::view('/ui', 'dashboard.ui');
         Route::view('/404', 'dashboard.error');
         Route::view('/login', 'dashboard.login');
 
-        // Dashboard Workshops CRUD
+        // Workshops CRUD
         Route::resource('workshops', WorkshopController::class);
+
+        // Sponsorships CRUD
+        Route::get('/ui', [SponsorshipController::class, 'ui'])->name('dashboard.ui');
+        Route::get('/sponsorships', [SponsorshipController::class, 'index'])->name('sponsorships.index');
+        Route::post('/sponsorships', [SponsorshipController::class, 'store'])->name('sponsorships.store');
+        Route::get('/sponsorships/{id}/edit', [SponsorshipController::class, 'edit'])->name('sponsorships.edit');
+        Route::put('/sponsorships/{id}', [SponsorshipController::class, 'update'])->name('sponsorships.update');
+        Route::delete('/sponsorships/{id}', [SponsorshipController::class, 'destroy'])->name('sponsorships.destroy');
 
         // Super admin role management
         Route::get('/manage-roles', [RoleController::class, 'index']);
@@ -90,7 +105,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Dashboard Team Members CRUD
+    // Team Members CRUD
     Route::get('/dashboard/team', [TeamMemberController::class, 'index'])->name('team.index');
     Route::get('/dashboard/team/create', [TeamMemberController::class, 'create'])->name('team.create');
     Route::post('/dashboard/team', [TeamMemberController::class, 'store'])->name('team.store');
@@ -99,5 +114,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::delete('/dashboard/team/{id}', [TeamMemberController::class, 'destroy'])->name('team.destroy');
 });
 
-// Laravel auth routes
+// Auth routes
 require __DIR__.'/auth.php';

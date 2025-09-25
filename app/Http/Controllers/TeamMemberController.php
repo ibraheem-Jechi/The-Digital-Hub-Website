@@ -104,6 +104,14 @@ class TeamMemberController extends Controller
 
         return view('frontend.index', compact('teamMembers', 'programs'));
     }
+      public function frontendteam()
+    {
+        $teamMembers = TeamMember::all();
+        
+
+        return view('frontend.team', compact('teamMembers', ));
+    }
+
 
     // Frontend about page
     public function frontendAbout()
