@@ -7,7 +7,7 @@
 
 @section('content')
 
-
+    
 
 
     <!-- Carousel Start -->
@@ -362,365 +362,116 @@
     <!-- Blog End -->
 
 
-    <!-- FAQs Start -->
-    <div class="container-fluid faq-section pb-5">
-        <div class="container pb-5 overflow-hidden">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">FAQs</h4>
-                <h1 class="display-5 mb-4">Frequently Asked Questions</h1>
-                <p class="mb-0">Find Your Answers Here.
-                </p>
-            </div>
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
-                    <div class="accordion accordion-flush bg-light rounded p-5" id="accordionFlushSection">
-                        <div class="accordion-item rounded-top">
-                            <h2 class="accordion-header" id="flush-headingOne">
-                                <button class="accordion-button collapsed rounded-top" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
-                                    aria-controls="flush-collapseOne">
-                                    What Learning style does the Digital Hub follow ?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseOne" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">We focus on self-learning methods while equipping students with
-                                    problem-solving skills that prepare them for real-world challenges.</div>
-                            </div>
+   <style>
+/* Active / Expanded accordion button */
+.accordion-button:not(.collapsed) {
+    background-color: #0d6efd; /* Bootstrap primary blue */
+    color: #fff;                /* White text */
+    box-shadow: none;           /* Remove default shadow */
+}
+
+/* Optional: keep the arrow white */
+.accordion-button:not(.collapsed)::after {
+    filter: invert(1);
+}
+
+/* Ensure collapsed state looks good */
+.accordion-button {
+    background-color: #f8f9fa; /* Light grey */
+    color: #000;                /* Black text */
+}
+</style>
+
+<!-- FAQs Start -->
+<div class="container-fluid faq-section py-5">
+    <div class="container py-5 overflow-hidden">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">FAQs</h4>
+            <h1 class="display-5 mb-4">Frequently Asked Questions</h1>
+            <p class="mb-0"> Find Your Answers Here.</p>
+        </div>
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.2s">
+                <div class="accordion accordion-flush bg-light rounded p-5" id="accordionFlushSection">
+                    <div class="accordion-item rounded-top">
+                        <h2 class="accordion-header" id="flush-headingOne">
+                            <button class="accordion-button collapsed rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                What learning style does Digital Hub follow?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushSection">
+                            <div class="accordion-body">We focus on self-learning methods while equipping students with problem-solving skills that prepare them for real-world challenges.</div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                                    aria-controls="flush-collapseTwo">
-                                    How long is the program?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">Our programs typically run between 3 to 6 months, depending on
-                                    the track.</div>
-                            </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                How long is the program?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushSection">
+                            <div class="accordion-body"> Our programs typically run between 3 to 6 months, depending on the track.</div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseThree" aria-expanded="false"
-                                    aria-controls="flush-collapseThree">
-                                    Where is the workplace located?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseThree" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">All activities take place at our hub in Beirut Souks.</div>
-                            </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                                Where is the workplace located?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushSection">
+                            <div class="accordion-body">All activities take place at our hub in Beirut Souks.</div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseFour" aria-expanded="false"
-                                    aria-controls="flush-collapseFour">
-                                    What is the age range for the programs?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseFour" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">The students should be from 19 to 30</div>
-                            </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                What is the age range for the programs?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushSection">
+                            <div class="accordion-body"> The students should be from 19 to 30</div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="flush-headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseFive" aria-expanded="false"
-                                    aria-controls="flush-collapseFive">
-                                    Do you accept all nationalities?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseFive" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body"> For now our programs for palestinians, and maybe in the future
-                                    we accpet others</div>
-                            </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="flush-headingFive">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                Do you accept all nationalities?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushSection">
+                            <div class="accordion-body">For now our programs for palestinians, and maybe in the future we accpet others.</div>
                         </div>
-                        <div class="accordion-item rounded-bottom">
-                            <h2 class="accordion-header" id="flush-headingSix">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseSix" aria-expanded="false"
-                                    aria-controls="flush-collapseSix">
-                                    Do you have a transportation fees?
-                                </button>
-                            </h2>
-                            <div id="flush-collapseSix" class="accordion-collapse collapse"
-                                aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushSection">
-                                <div class="accordion-body">Till now no, but maybe we can have a private buses for all
-                                    cities.</div>
-                            </div>
+                    </div>
+                    <div class="accordion-item rounded-bottom">
+                        <h2 class="accordion-header" id="flush-headingSix">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                                Do you have a transportation fees?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushSection">
+                            <div class="accordion-body">Till now no, but maybe we can have a private buses for all cities.</div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
-                    <div class="bg-primary rounded">
-                        <img src="{{ asset('img/asking.jpg') }}" class="img-fluid w-100" alt="">
-                    </div>
+            </div>
+            <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
+                <div class="bg-primary rounded">
+                    <img src="{{ asset('img/asking.jpg') }}" class="img-fluid w-100" alt="">
                 </div>
             </div>
         </div>
     </div>
-    <!-- FAQs End -->
+</div>
+<!-- FAQs End -->
 
 
-    <!-- Team Start -->
-    {{-- <div class="container-fluid team pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Team</h4>
-                <h1 class="display-5 mb-4">Meet The Mentors & Managers</h1>
-                <p class="mb-0">The mentors have a deep understanding of the programs and strong expertise, supported by
-                    managers with exceptional organizational and management abilities.
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="img/team-1.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="team-title">
-                            <h4 class="mb-0">David James</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="team-icon">
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i
-                                    class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="img/team-2.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="team-title">
-                            <h4 class="mb-0">David James</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="team-icon">
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i
-                                    class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="img/team-3.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="team-title">
-                            <h4 class="mb-0">David James</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="team-icon">
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i
-                                    class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                    <div class="team-item">
-                        <div class="team-img">
-                            <img src="img/team-4.jpg" class="img-fluid" alt="">
-                        </div>
-                        <div class="team-title">
-                            <h4 class="mb-0">David James</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="team-icon">
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-3" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-primary btn-sm-square rounded-circle me-0" href=""><i
-                                    class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- Team End -->
+
 
 
     <!-- Team Start -->
     @include('frontend.partials.team')
-    <!-- Team End -->
-
-    <!-- Testimonial Start -->
-    {{-- <div class="container-fluid testimonial pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Students’ Testimonials</h4>
-                <h1 class="display-5 mb-4">Our students use LinkedIn</h1>
-                <p class="mb-0">One of the most valuable aspects of our programs is guiding students on how to apply for
-                    jobs professionally and build meaningful connections with industry leaders. LinkedIn plays a key role in
-                    this journey, serving as the most important platform to take this step forward.
-                </p>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-                <div class="testimonial-item">
-                    <div class="testimonial-quote-left">
-                        <i class="fas fa-quote-left fa-2x"></i>
-                    </div>
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-1.jpg" class="img-fluid" alt="Image">
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                        </p>
-                    </div>
-                    <div class="testimonial-title">
-                        <div>
-                            <h4 class="mb-0">Person Name</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote-right">
-                        <i class="fas fa-quote-right fa-2x"></i>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-quote-left">
-                        <i class="fas fa-quote-left fa-2x"></i>
-                    </div>
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-2.jpg" class="img-fluid" alt="Image">
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                        </p>
-                    </div>
-                    <div class="testimonial-title">
-                        <div>
-                            <h4 class="mb-0">Person Name</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote-right">
-                        <i class="fas fa-quote-right fa-2x"></i>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-quote-left">
-                        <i class="fas fa-quote-left fa-2x"></i>
-                    </div>
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-3.jpg" class="img-fluid" alt="Image">
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                        </p>
-                    </div>
-                    <div class="testimonial-title">
-                        <div>
-                            <h4 class="mb-0">Person Name</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote-right">
-                        <i class="fas fa-quote-right fa-2x"></i>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-quote-left">
-                        <i class="fas fa-quote-left fa-2x"></i>
-                    </div>
-                    <div class="testimonial-img">
-                        <img src="img/testimonial-2.jpg" class="img-fluid" alt="Image">
-                    </div>
-                    <div class="testimonial-text">
-                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
-                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                        </p>
-                    </div>
-                    <div class="testimonial-title">
-                        <div>
-                            <h4 class="mb-0">Person Name</h4>
-                            <p class="mb-0">Profession</p>
-                        </div>
-                        <div class="d-flex text-primary">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                    <div class="testimonial-quote-right">
-                        <i class="fas fa-quote-right fa-2x"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- Testimonial End -->
-    <!-- Video Modal -->
-    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content bg-transparent border-0">
-                <div class="modal-body p-0">
-                    <div class="ratio ratio-16x9">
-                        <iframe id="videoFrame" src="https://www.youtube.com/embed/1lp7h_IUxU8?autoplay=1"
-                            title="Lionel Messi - 50+ Moments Impossible To Forget" allow="autoplay; fullscreen"
-                            allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
+  
     <script>
         var videoModal = document.getElementById('videoModal');
         var videoFrame = document.getElementById('videoFrame');

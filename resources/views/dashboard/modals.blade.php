@@ -35,6 +35,13 @@
                             src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4" alt="">
                         <a href="#" onclick="profileToggle()"
                             class="text-white p-2 no-underline hidden md:block lg:block">Adam Wathan</a> --}}
+                                    <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" 
+        class="block w-full text-left px-4 py-2 bg-white text-gray-800 hover:bg-gray-100 rounded">
+        {{ __('Log Out') }}
+    </button>
+</form>
 
                         <div id="ProfileDropDown"
                             class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">

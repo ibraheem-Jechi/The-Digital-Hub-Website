@@ -31,6 +31,13 @@
                             src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4" alt="">
                         <a href="#" onclick="profileToggle()"
                             class="text-white p-2 no-underline hidden md:block lg:block">Adam Wathan</a> --}}
+                                    <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" 
+        class="block w-full text-left px-4 py-2 bg-white text-gray-800 hover:bg-gray-100 rounded">
+        {{ __('Log Out') }}
+    </button>
+</form>
                         <div id="ProfileDropDown"
                             class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
                             <ul class="list-reset">
@@ -120,37 +127,7 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
-                        {{-- <li class="w-full h-full py-3 px-2">
-                            <a href="#"
-                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="far fa-file float-left mx-2"></i>
-                                Pages
-                                <span><i class="fa fa-angle-down float-right"></i></span>
-                            </a>
-                            <ul class="list-reset -mx-2 bg-white-medium-dark">
-                                <li class="border-t mt-2 border-light-border w-full h-full px-2 py-3">
-                                    <a href="{{ url('/dashboard/login') }}"
-                                    class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                        Login Page
-                                        <span><i class="fa fa-angle-right float-right"></i></span>
-                                    </a>
-                                </li>
-                                <li class="border-t border-light-border w-full h-full px-2 py-3">
-                                <a href="{{ url('/dashboard/register') }}"
-                                    class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                        Register Page
-                                        <span><i class="fa fa-angle-right float-right"></i></span>
-                                    </a>
-                                </li>
-                                <li class="border-t border-light-border w-full h-full px-2 py-3">
-                                    <a href="{{ url('/dashboard/error') }}"
-                                    class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                        404 Page
-                                        <span><i class="fa fa-angle-right float-right"></i></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li> --}}
+                        
                 </ul>
                 </aside>
                 <!--/Sidebar-->

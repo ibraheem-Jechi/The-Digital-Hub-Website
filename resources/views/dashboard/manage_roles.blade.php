@@ -50,6 +50,35 @@
                 <div class="p-1 flex flex-row items-center">
                     {{-- <img onclick="profileToggle()" class="inline-block h-8 w-8 rounded-full" src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4" alt="">
                     <a href="#" onclick="profileToggle()" class="text-white p-2 no-underline hidden md:block lg:block">Adam Wathan</a> --}}
+        {{-- <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" 
+        class="block w-full text-left px-4 py-2 !bg-white !text-gray-800 hover:!bg-gray-100 rounded shadow">
+        {{ __('Log Out') }}
+    </button>
+</form> --}}
+<style>
+    .logout-btn {
+        background-color: #ffffff !important;
+        color: #374151 !important; /* gray-800 */
+        border-radius: 0.375rem !important; /* rounded */
+        padding: 0.5rem 1rem !important;
+        display: block;
+        text-align: left;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* shadow */
+    }
+    .logout-btn:hover {
+        background-color: #f3f4f6 !important; /* gray-100 */
+    }
+</style>
+<form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" class="logout-btn">
+        {{ __('Log Out') }}
+    </button>
+</form>
+
+
                     <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute top-0 mt-12 mr-1 right-0">
                         <ul class="list-reset">
                           <li><a href="#" class="no-underline px-4 py-2 block text-black hover:bg-gray-300">My account</a></li>

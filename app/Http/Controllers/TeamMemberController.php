@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TeamMember;
 use App\Models\Program;
-use App\Models\Sponsorship; // ✅ added
+use App\Models\Sponsorship; 
 use Illuminate\Support\Facades\Storage;
 use App\Models\Workshop; 
 

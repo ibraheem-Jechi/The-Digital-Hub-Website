@@ -17,9 +17,14 @@ use App\Models\TeamMember;
 | Program CRUD Routes
 |--------------------------------------------------------------------------
 */
-Route::resource('programs', ProgramController::class);
-Route::get('/dashboard/tables', [ProgramController::class, 'index'])->name('programs.index');
+// ✅ Public programs page
+Route::get('/programs', [ProgramController::class, 'indexpublic'])->name('programs.public');
 
+// ✅ Dashboard (protected)
+Route::middleware(['auth'])->group(function () {
+    Route::resource('programs', ProgramController::class)->except(['show']); 
+    Route::get('/dashboard/tables', [ProgramController::class, 'index'])->name('programs.index');
+});
 /*
 |--------------------------------------------------------------------------
 | Public Frontend Routes
