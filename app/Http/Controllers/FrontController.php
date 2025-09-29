@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\TeamMember;
-
+use App\Models\Workshop;
 use App\Models\Program;
 class FrontController extends Controller
 {
     // Home page
-   public function index()
-{
-    $teamMembers = TeamMember::all();
-    $programs = Program::latest()->get();
-
-    return view('frontend.index', compact('programs', 'teamMembers'));
-}
+    public function index()
+    {
+        $teamMembers = TeamMember::all();
+        $programs = Program::latest()->get();
+        $workshops = Workshop::latest()->get();
+        return view('frontend.index', compact('programs', 'teamMembers', 'workshops'));
+    }
 
     // Team page
     public function team()
@@ -78,7 +78,7 @@ class FrontController extends Controller
     {
         return view('frontend.404');
     }
-       
-    }
+
+}
 
 

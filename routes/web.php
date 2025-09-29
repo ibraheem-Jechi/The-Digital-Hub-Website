@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController; 
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WorkshopController;
@@ -33,11 +33,12 @@ Route::get('/', [TeamMemberController::class, 'frontendIndex'])->name('frontend.
 Route::get('/about', function () {
     $sponsorships = Sponsorship::all();
     $teamMembers = TeamMember::all();
+
     return view('frontend.about', compact('sponsorships', 'teamMembers'));
 })->name('frontend.about');
 
 // Team page
-Route::get('/team', [TeamMemberController::class, 'frontendteam'])->name('team.public'); 
+Route::get('/team', [TeamMemberController::class, 'frontendteam'])->name('team.public');
 
 // Services
 Route::get('/services', [ProgramController::class, 'indexpublic'])->name('frontend.services');
@@ -45,10 +46,10 @@ Route::get('/services', [ProgramController::class, 'indexpublic'])->name('fronte
 // Workshops / Blog
 Route::get('/blog', [WorkshopController::class, 'workshops'])->name('frontend.workshops');
 Route::get('/workshops', [WorkshopController::class, 'workshops'])->name('frontend.workshops');
-
+Route::get('/features', [SponsorshipController::class, 'publicSpon'])->name('frontend.features');
 // Other static frontend pages
 Route::get('/contact', fn() => view('frontend.contact'))->name('frontend.contact');
-Route::get('/features', fn() => view('frontend.features'))->name('frontend.features');
+
 Route::get('/testimonial', fn() => view('frontend.testimonial'))->name('frontend.testimonial');
 Route::get('/offer', fn() => view('frontend.offer'))->name('frontend.offer');
 Route::get('/FAQ', fn() => view('frontend.faqs'))->name('frontend.faqs');
@@ -115,4 +116,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 // Auth routes
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

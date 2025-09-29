@@ -23,13 +23,14 @@
                                 <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome to The Digital Hub</h4>
                                 <h1 class="display-4 text-uppercase text-white mb-4">Gain hands-on experience in coding and
                                     advance your Digital skills.</h1>
-                                <p class="mb-5 fs-5">Several programming languages that shape your future will be taught to
-                                    you.
+                                <p class="mb-5 fs-5">Empower yourself with essential digital skills. Our programs, from
+                                    digital literacy to full-stack development, equip you for the future of technology
                                 </p>
                                 <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
                                     <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i
                                             class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                    <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+                                    <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="about">Learn
+                                        More</a>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center justify-content-md-end">
                                     <h2 class="text-white me-2">Follow Us:</h2>
@@ -60,13 +61,14 @@
                                 <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome To The Digital Hub</h4>
                                 <h1 class="display-4 text-uppercase text-white mb-4"> Gain hands-on experience in coding and
                                     advance your Digital skills.</h1>
-                                <p class="mb-5 fs-5">Several programming languages that shape your future will be taught to
-                                    you.
+                                <p class="mb-5 fs-5">Empower yourself with essential digital skills. Our programs, from
+                                    digital literacy to full-stack development, equip you for the future of technology
                                 </p>
                                 <div class="d-flex justify-content-center flex-shrink-0 mb-4">
                                     <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i
                                             class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                    <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="#">Learn More</a>
+                                    <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="about">Learn
+                                        More</a>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-center">
                                     <h2 class="text-white me-2">Follow Us:</h2>
@@ -110,8 +112,9 @@
                                 <div class="d-flex">
                                     <div><i class="fas fa-lightbulb fa-3x text-primary"></i></div>
                                     <div class="ms-4">
-                                        <h4>Business Consuluting</h4>
-                                        <p>Helping businesses grow through digital strategies and smart solutions.</p>
+                                        <h4>Skill Development</h4>
+                                        <p>Empowering individuals with the tools and knowledge to excel in the digital
+                                            world.</p>
                                     </div>
                                 </div>
                             </div>
@@ -119,13 +122,14 @@
                                 <div class="d-flex">
                                     <div><i class="bi bi-bookmark-heart-fill fa-3x text-primary"></i></div>
                                     <div class="ms-4">
-                                        <h4>Year Of Expertise</h4>
-                                        <p>Trusted expertise built through continous learning and real-world practice.</p>
+                                        <h4>Years of Mastery</h4>
+                                        <p>Proven expertise honed through continuous learning and hands-on experience</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <a href="#" class="btn btn-primary rounded-pill py-3 px-5 flex-shrink-0">Discover Now</a>
+                                <a href="services" class="btn btn-primary rounded-pill py-3 px-5 flex-shrink-0">Discover
+                                    Now</a>
                             </div>
                             <div class="col-sm-6">
                                 <div class="d-flex">
@@ -188,70 +192,41 @@
     </div>
     <!-- Services End -->
 
-    <!-- Features Start -->
-    <div class="container-fluid feature pb-5">
-        <div class="container pb-5">
-            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                <h4 class="text-primary">Our Sponsors</h4>
-                <h1 class="display-5 mb-4">Organizations and companies that fund and sponsor our programs</h1>
-                <p class="mb-0">We are grateful to the organizations and companies that fund and sponsor our programs,
-                    enabling us to empower youth with essential digital skills. We also welcome and thank new sponsors and
-                    partners, who will become an integral part of our journey.
-                </p>
-            </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="feature-item p-4">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fas fa-chart-line fa-4x text-primary"></i>
-                        </div>
-                        <h4>Global Management</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
+     <!-- Sponsors Section Start -->
+<div class="container-fluid feature py-5">
+    <div class="container py-5">
+        <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+            <h4 class="text-primary">Our Sponsors</h4>
+            <h1 class="display-5 mb-4">Organizations and companies that fund and sponsor our programs</h1>
+            <p class="mb-0">We are grateful to the organizations and companies that fund and sponsor our programs, enabling us to empower youth with essential digital skills. We also welcome and thank new sponsors and partners, who will become an integral part of our journey.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            @forelse($sponsorships as $sponsor)
+                <div class="col-md-6 col-lg-4 col-xl-3 text-center mb-4 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="p-4 border rounded shadow-sm">
+                        @if($sponsor->logo_url)
+                            <a href="{{ $sponsor->website_url }}" target="_blank">
+                                <img src="{{ asset('storage/' . $sponsor->logo_url) }}" alt="{{ $sponsor->description }}" class="img-fluid mb-2" style="max-height:100px;">
+                            </a>
+                        @else
+                            <i class="fas fa-handshake fa-4x text-primary mb-2"></i>
+                        @endif
+                        <h5 class="mb-2">{{ $sponsor->description }}</h5>
+                        @if($sponsor->website_url)
+                            <a href="{{ $sponsor->website_url }}" target="_blank" class="btn btn-primary rounded-pill py-1 px-3 mt-2">
+                                Visit Website
+                            </a>
+@endif
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.4s">
-                    <div class="feature-item p-4">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fas fa-university fa-4x text-primary"></i>
-                        </div>
-                        <h4>Corporate Banking</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="feature-item p-4">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fas fa-file-alt fa-4x text-primary"></i>
-                        </div>
-                        <h4>Asset Management</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.8s">
-                    <div class="feature-item p-4">
-                        <div class="feature-icon p-4 mb-4">
-                            <i class="fas fa-hand-holding-usd fa-4x text-primary"></i>
-                        </div>
-                        <h4>Investment Bank</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea hic laborum odit
-                            pariatur...
-                        </p>
-                        <a class="btn btn-primary rounded-pill py-2 px-4" href="#">Learn More</a>
-                    </div>
-                </div>
-            </div>
+            @empty
+                <p class="text-center">No sponsors yet.</p>
+            @endforelse
         </div>
     </div>
-    <!-- Features End -->
+</div>
+<!-- Sponsors Section End -->
 
 
     <!-- Offer Start -->
@@ -357,86 +332,30 @@
                 </p>
             </div>
             <div class="owl-carousel blog-carousel wow fadeInUp" data-wow-delay="0.2s">
-                <div class="blog-item p-4">
-                    <div class="blog-img mb-4">
-                        <img src="img/service-1.jpg" class="img-fluid w-100 rounded" alt="">
-                        <div class="blog-title">
-                            <a href="#" class="btn">Dividend Stocks</a>
+                @foreach($workshops as $workshop)
+                    <div class="blog-item p-4">
+                        <div class="blog-img mb-4">
+                            @if($workshop->image)
+                                <img src="{{ asset('storage/' . $workshop->image) }}" class="img-fluid w-100 rounded"
+                                    alt="{{ $workshop->title }}">
+                            @else
+                                <img src="{{ asset('img/default-workshop.jpg') }}" class="img-fluid w-100 rounded" alt="No Image">
+                            @endif
+                            <div class="blog-title">
+                                <a href="#" class="btn">{{ $workshop->program_id ?? 'General' }}</a>
+                            </div>
+                        </div>
+                        <a href="#" class="h4 d-inline-block mb-3">{{ $workshop->title }}</a>
+                        <p class="mb-4">{{ Str::limit($workshop->description, 100) }}</p>
+                        <div class="d-flex align-items-center">
+
+                            <div class="ms-3">
+                                <h5>Admin</h5>
+                                <p class="mb-0">{{ \Carbon\Carbon::parse($workshop->event_date)->format('F j, Y') }}</p>
+                            </div>
                         </div>
                     </div>
-                    <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
-                    <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit
-                        error corporis accusamus labore....
-                    </p>
-                    <div class="d-flex align-items-center">
-                        <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;"
-                            alt="">
-                        <div class="ms-3">
-                            <h5>Admin</h5>
-                            <p class="mb-0">October 9, 2025</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-item p-4">
-                    <div class="blog-img mb-4">
-                        <img src="img/service-2.jpg" class="img-fluid w-100 rounded" alt="">
-                        <div class="blog-title">
-                            <a href="#" class="btn">Non-Dividend Stocks</a>
-                        </div>
-                    </div>
-                    <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
-                    <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit
-                        error corporis accusamus labore....
-                    </p>
-                    <div class="d-flex align-items-center">
-                        <img src="img/testimonial-2.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;"
-                            alt="">
-                        <div class="ms-3">
-                            <h5>Admin</h5>
-                            <p class="mb-0">October 9, 2025</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-item p-4">
-                    <div class="blog-img mb-4">
-                        <img src="img/service-3.jpg" class="img-fluid w-100 rounded" alt="">
-                        <div class="blog-title">
-                            <a href="#" class="btn">Dividend Stocks</a>
-                        </div>
-                    </div>
-                    <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
-                    <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit
-                        error corporis accusamus labore....
-                    </p>
-                    <div class="d-flex align-items-center">
-                        <img src="img/testimonial-3.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;"
-                            alt="">
-                        <div class="ms-3">
-                            <h5>Admin</h5>
-                            <p class="mb-0">October 9, 2025</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-item p-4">
-                    <div class="blog-img mb-4">
-                        <img src="img/service-4.jpg" class="img-fluid w-100 rounded" alt="">
-                        <div class="blog-title">
-                            <a href="#" class="btn">Non-Dividend Stocks</a>
-                        </div>
-                    </div>
-                    <a href="#" class="h4 d-inline-block mb-3">Options Trading Business?</a>
-                    <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore aut aliquam suscipit
-                        error corporis accusamus labore....
-                    </p>
-                    <div class="d-flex align-items-center">
-                        <img src="img/testimonial-1.jpg" class="img-fluid rounded-circle" style="width: 60px; height: 60px;"
-                            alt="">
-                        <div class="ms-3">
-                            <h5>Admin</h5>
-                            <p class="mb-0">October 9, 2025</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -651,160 +570,164 @@
     <!-- Team End -->
 
 
-        <!-- Team Start -->
-        @include('frontend.partials.team')
-        <!-- Team End -->
+    <!-- Team Start -->
+    @include('frontend.partials.team')
+    <!-- Team End -->
 
-        <!-- Testimonial Start -->
-        {{-- <div class="container-fluid testimonial pb-5">
-            <div class="container pb-5">
-                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
-                    <h4 class="text-primary">Students’ Testimonials</h4>
-                    <h1 class="display-5 mb-4">Our students use LinkedIn</h1>
-                    <p class="mb-0">One of the most valuable aspects of our programs is guiding students on how to apply for jobs professionally and build meaningful connections with industry leaders. LinkedIn plays a key role in this journey, serving as the most important platform to take this step forward.
-                    </p>
+    <!-- Testimonial Start -->
+    {{-- <div class="container-fluid testimonial pb-5">
+        <div class="container pb-5">
+            <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                <h4 class="text-primary">Students’ Testimonials</h4>
+                <h1 class="display-5 mb-4">Our students use LinkedIn</h1>
+                <p class="mb-0">One of the most valuable aspects of our programs is guiding students on how to apply for
+                    jobs professionally and build meaningful connections with industry leaders. LinkedIn plays a key role in
+                    this journey, serving as the most important platform to take this step forward.
+                </p>
+            </div>
+            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
+                <div class="testimonial-item">
+                    <div class="testimonial-quote-left">
+                        <i class="fas fa-quote-left fa-2x"></i>
+                    </div>
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-1.jpg" class="img-fluid" alt="Image">
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
+                        </p>
+                    </div>
+                    <div class="testimonial-title">
+                        <div>
+                            <h4 class="mb-0">Person Name</h4>
+                            <p class="mb-0">Profession</p>
+                        </div>
+                        <div class="d-flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-quote-right">
+                        <i class="fas fa-quote-right fa-2x"></i>
+                    </div>
                 </div>
-                <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="testimonial-item">
-                        <div class="testimonial-quote-left">
-                            <i class="fas fa-quote-left fa-2x"></i>
+                <div class="testimonial-item">
+                    <div class="testimonial-quote-left">
+                        <i class="fas fa-quote-left fa-2x"></i>
+                    </div>
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-2.jpg" class="img-fluid" alt="Image">
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
+                        </p>
+                    </div>
+                    <div class="testimonial-title">
+                        <div>
+                            <h4 class="mb-0">Person Name</h4>
+                            <p class="mb-0">Profession</p>
                         </div>
-                        <div class="testimonial-img">
-                            <img src="img/testimonial-1.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                            </p>
-                        </div>
-                        <div class="testimonial-title">
-                            <div>
-                                <h4 class="mb-0">Person Name</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-right">
-                            <i class="fas fa-quote-right fa-2x"></i>
+                        <div class="d-flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-quote-left">
-                            <i class="fas fa-quote-left fa-2x"></i>
+                    <div class="testimonial-quote-right">
+                        <i class="fas fa-quote-right fa-2x"></i>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-quote-left">
+                        <i class="fas fa-quote-left fa-2x"></i>
+                    </div>
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-3.jpg" class="img-fluid" alt="Image">
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
+                        </p>
+                    </div>
+                    <div class="testimonial-title">
+                        <div>
+                            <h4 class="mb-0">Person Name</h4>
+                            <p class="mb-0">Profession</p>
                         </div>
-                        <div class="testimonial-img">
-                            <img src="img/testimonial-2.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                            </p>
-                        </div>
-                        <div class="testimonial-title">
-                            <div>
-                                <h4 class="mb-0">Person Name</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-right">
-                            <i class="fas fa-quote-right fa-2x"></i>
+                        <div class="d-flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-quote-left">
-                            <i class="fas fa-quote-left fa-2x"></i>
+                    <div class="testimonial-quote-right">
+                        <i class="fas fa-quote-right fa-2x"></i>
+                    </div>
+                </div>
+                <div class="testimonial-item">
+                    <div class="testimonial-quote-left">
+                        <i class="fas fa-quote-left fa-2x"></i>
+                    </div>
+                    <div class="testimonial-img">
+                        <img src="img/testimonial-2.jpg" class="img-fluid" alt="Image">
+                    </div>
+                    <div class="testimonial-text">
+                        <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis
+                            excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
+                        </p>
+                    </div>
+                    <div class="testimonial-title">
+                        <div>
+                            <h4 class="mb-0">Person Name</h4>
+                            <p class="mb-0">Profession</p>
                         </div>
-                        <div class="testimonial-img">
-                            <img src="img/testimonial-3.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                            </p>
-                        </div>
-                        <div class="testimonial-title">
-                            <div>
-                                <h4 class="mb-0">Person Name</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-right">
-                            <i class="fas fa-quote-right fa-2x"></i>
+                        <div class="d-flex text-primary">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                     </div>
-                    <div class="testimonial-item">
-                        <div class="testimonial-quote-left">
-                            <i class="fas fa-quote-left fa-2x"></i>
-                        </div>
-                        <div class="testimonial-img">
-                            <img src="img/testimonial-2.jpg" class="img-fluid" alt="Image">
-                        </div>
-                        <div class="testimonial-text">
-                            <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis blanditiis excepturi quisquam temporibus voluptatum reprehenderit culpa, quasi corrupti laborum accusamus.
-                            </p>
-                        </div>
-                        <div class="testimonial-title">
-                            <div>
-                                <h4 class="mb-0">Person Name</h4>
-                                <p class="mb-0">Profession</p>
-                            </div>
-                            <div class="d-flex text-primary">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <div class="testimonial-quote-right">
-                            <i class="fas fa-quote-right fa-2x"></i>
-                        </div>
+                    <div class="testimonial-quote-right">
+                        <i class="fas fa-quote-right fa-2x"></i>
                     </div>
                 </div>
             </div>
-        </div> --}}
-        <!-- Testimonial End -->
-<!-- Video Modal -->
-<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content bg-transparent border-0">
-      <div class="modal-body p-0">
-        <div class="ratio ratio-16x9">
-          <iframe id="videoFrame" src="https://www.youtube.com/embed/1lp7h_IUxU8?autoplay=1" title="Lionel Messi - 50+ Moments Impossible To Forget" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </div>
-      </div>
+    </div> --}}
+    <!-- Testimonial End -->
+    <!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+                <div class="modal-body p-0">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="videoFrame" src="https://www.youtube.com/embed/1lp7h_IUxU8?autoplay=1"
+                            title="Lionel Messi - 50+ Moments Impossible To Forget" allow="autoplay; fullscreen"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<script>
-    var videoModal = document.getElementById('videoModal');
-    var videoFrame = document.getElementById('videoFrame');
+    <script>
+        var videoModal = document.getElementById('videoModal');
+        var videoFrame = document.getElementById('videoFrame');
 
-    videoModal.addEventListener('hidden.bs.modal', function () {
-        // Stop the video when modal is closed
-        videoFrame.src = videoFrame.src;
-    });
-</script>
+        videoModal.addEventListener('hidden.bs.modal', function () {
+            // Stop the video when modal is closed
+            videoFrame.src = videoFrame.src;
+        });
+    </script>
 @endsection
-
-
-   
-      
