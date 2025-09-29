@@ -24,13 +24,13 @@
                 <div class="flex justify-between">
                     <div class="p-1 mx-3 inline-flex items-center">
                         <i class="fas fa-bars pr-2 text-white" onclick="sidebarToggle()"></i>
-                        <h1 class="text-white p-2">Logo</h1>
+                        <h1 class="text-white p-2">Digital Hub</h1>
                     </div>
                     <div class="p-1 flex flex-row items-center">
-                        <img onclick="profileToggle()" class="inline-block h-8 w-8 rounded-full"
+                        {{-- <img onclick="profileToggle()" class="inline-block h-8 w-8 rounded-full"
                             src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4" alt="">
                         <a href="#" onclick="profileToggle()"
-                            class="text-white p-2 no-underline hidden md:block lg:block">Adam Wathan</a>
+                            class="text-white p-2 no-underline hidden md:block lg:block">Adam Wathan</a> --}}
                         <div id="ProfileDropDown"
                             class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
                             <ul class="list-reset">
@@ -68,49 +68,61 @@
                                 <span><i class="fas fa-angle-right float-right"></i></span>
                             </a>
                         </li>
-                        <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                            <a href="{{ url('/dashboard/forms') }}"
-                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="fab fa-wpforms float-left mx-2"></i>
-                                Forms
-                                <span><i class="fa fa-angle-right float-right"></i></span>
+                                     @if(auth()->check() && auth()->user()->role === 'super_admin')
+    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+        <a href="{{ url('/dashboard/manage-roles') }}"
+           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+            <i class="fas fa-user-shield float-left mx-2"></i>
+            Manage Roles
+            <span><i class="fa fa-angle-right float-right"></i></span>
+        </a>
+    </li>
+@endif
+
+        
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                <a href="{{ route('team.index') }}" 
+                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                    <i class="fas fa-users float-left mx-2"></i>
+                                Team Members
                             </a>
-                        </li>
-                        <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                            <a href="{{ url('/dashboard/buttons') }}"
-                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="fab fa-wpforms float-left mx-2"></i>
-                                Buttons
-                                <span><i class="fa fa-angle-right float-right"></i></span>
-                            </a>
+                           <span><i class="fa fa-angle-right float-right"></i></span>
                         </li>
                         <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
                             <a href="{{ url('/dashboard/tables') }}"
                                 class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                 <i class="fas fa-table float-left mx-2"></i>
-                                Tables
+                                Programs
                                 <span><i class="fa fa-angle-right float-right"></i></span>
                             </a>
                         </li>
-                        <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                            <a href="{{ url('/dashboard/ui') }}"
-                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="fab fa-uikit float-left mx-2"></i>
-                                Ui components
-                                <span><i class="fa fa-angle-right float-right"></i></span>
-                            </a>
-                        </li>
-                        <li class="w-full h-full py-3 px-2 border-b border-300-border">
-                            <a href="{{ url('/dashboard/modals') }}"
-                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="fas fa-square-full float-left mx-2"></i>
-                                Modals
-                                <span><i class="fa fa-angle-right float-right"></i></span>
-                            </a>
-                        </li>
-                        <li class="w-full h-full py-3 px-2">
+                                            <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{ url('/dashboard/workshops') }}" 
+                        class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-table float-left mx-2"></i>
+                            Workshops
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{ url('/dashboard/ui') }}"
+                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fab fa-uikit float-left mx-2"></i>
+                            Sponsors
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-300-border">
+                        <a href="{{ url('/dashboard/modals') }}"
+                        class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-square-full float-left mx-2"></i>
+                            Contact Messages
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                        {{-- <li class="w-full h-full py-3 px-2">
                             <a href="#"
-                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                 <i class="far fa-file float-left mx-2"></i>
                                 Pages
                                 <span><i class="fa fa-angle-down float-right"></i></span>
@@ -118,29 +130,28 @@
                             <ul class="list-reset -mx-2 bg-white-medium-dark">
                                 <li class="border-t mt-2 border-light-border w-full h-full px-2 py-3">
                                     <a href="{{ url('/dashboard/login') }}"
-                                        class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                    class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                         Login Page
                                         <span><i class="fa fa-angle-right float-right"></i></span>
                                     </a>
                                 </li>
                                 <li class="border-t border-light-border w-full h-full px-2 py-3">
-                                    <a href="{{ url('/dashboard/register') }}"
-                                        class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                <a href="{{ url('/dashboard/register') }}"
+                                    class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                         Register Page
                                         <span><i class="fa fa-angle-right float-right"></i></span>
                                     </a>
                                 </li>
                                 <li class="border-t border-light-border w-full h-full px-2 py-3">
                                     <a href="{{ url('/dashboard/error') }}"
-                                        class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                                    class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                                         404 Page
                                         <span><i class="fa fa-angle-right float-right"></i></span>
                                     </a>
                                 </li>
                             </ul>
-                        </li>
-                    </ul>
-
+                        </li> --}}
+                </ul>
                 </aside>
                 <!--/Sidebar-->
                 <!--Main-->
@@ -308,11 +319,11 @@
                 </script>
 
             </div>
-            <!--Footer-->
-            <footer class="bg-grey-darkest text-white p-2">
-                <div class="flex flex-1 mx-auto">&copy; My Design</div>
-            </footer>
-            <!--/footer-->
+            <!-- Footer -->
+        <footer class="bg-gray-900 text-white p-2">
+            <div class="flex flex-1 mx-auto">&copy; DIGITAL HUB</div>
+        </footer>
+        <!-- /footer -->
 
         </div>
 
