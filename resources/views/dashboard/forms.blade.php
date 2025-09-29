@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="{{ asset('admin/dist/all.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600,600i,700,700i" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; color: #374151; }
+        body { font-family: 'Inter', sans-serif; background-color: #f9fafb; color: #374151; display: flex; flex-direction: column; min-height: 100vh; }
         input, select { padding: 0.5rem; border: 1px solid #d1d5db; border-radius: 0.25rem; width: 100%; margin-bottom: 1rem; }
         button { padding: 0.5rem 1rem; background-color: #3b82f6; color: white; border: none; border-radius: 0.25rem; cursor: pointer; }
         button:hover { background-color: #2563eb; }
+        .flex-1 { flex: 1; }
     </style>
 </head>
 <body>
-<div class="mx-auto">
-    <div class="min-h-screen flex flex-col">
+<div class="flex-1 flex flex-col">
+    <div class="mx-auto flex-1 flex flex-col min-h-screen">
         <!-- Header -->
         <header class="bg-nav">
             <div class="flex justify-between">
                 <div class="p-1 mx-3 inline-flex items-center">
                     <i class="fas fa-bars pr-2 text-white" onclick="sidebarToggle()"></i>
-                    <h1 class="text-white p-2">Logo</h1>
+                    <h1 class="text-white p-2">Digital Hub</h1>
                 </div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
@@ -32,11 +33,11 @@
                     </x-dropdown-link>
                 </form>
                 <div class="p-1 flex flex-row items-center">
-                    <img class="inline-block h-8 w-8 rounded-full" 
-                         src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4" alt="">
-                    <a href="#" class="text-white p-2 no-underline hidden md:block lg:block">
+                    {{-- <img class="inline-block h-8 w-8 rounded-full" 
+                         src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4" alt=""> --}}
+                    {{-- <a href="#" class="text-white p-2 no-underline hidden md:block lg:block">
                         {{ auth()->user()->name ?? 'User' }}
-                    </a>
+                    </a> --}}
                 </div>
             </div>
         </header>
@@ -69,50 +70,41 @@
                         <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
                             <a href="{{ url('/dashboard/forms') }}"
                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="fab fa-wpforms float-left mx-2"></i>
+                               <i class="fas fa-user-plus float-left mx-2"></i>
                                 Add User
                                 <span><i class="fa fa-angle-right float-right"></i></span>
                             </a>
                         </li>
                     @endif
 
-                    {{-- <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                        <a href="{{ url('/dashboard/buttons') }}"
-                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                            <i class="fas fa-grip-horizontal float-left mx-2"></i>
-                            Buttons
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{ route('team.index') }}" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-users float-left mx-2"></i> Team Members
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
-                    </li> --}}
-                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                <a href="{{ route('team.index') }}" class="text-sm text-nav-item no-underline">
-                    <i class="fas fa-users float-left mx-2"></i>
-                                Team Members
-                            </a>
-                            <span><i class="fa fa-angle-right float-right"></i></span>
-                        </li>
+                    </li>
 
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                       <a href="{{ url('/dashboard/tables') }}"
-                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                            <i class="fas fa-table float-left mx-2"></i>
-                            Tables
+                        <a href="{{ url('/dashboard/tables') }}" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-table float-left mx-2"></i> Programs
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                        <a href="{{ url('/dashboard/ui') }}"
-                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                            <i class="fab fa-uikit float-left mx-2"></i>
-                            Ui components
+                        <a href="{{ url('/dashboard/workshops') }}" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-table float-left mx-2"></i> Workshops
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{ url('/dashboard/ui') }}" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fab fa-uikit float-left mx-2"></i> Sponsors
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
                     <li class="w-full h-full py-3 px-2 border-b border-300-border">
-                        <a href="{{ url('/dashboard/modals') }}"
-                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                            <i class="fas fa-square-full float-left mx-2"></i>
-                            Modals
+                        <a href="{{ url('/dashboard/modals') }}" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-square-full float-left mx-2"></i> Contact Messages
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
@@ -158,5 +150,16 @@
         </div>
     </div>
 </div>
+
+<!-- Footer -->
+<footer class="bg-gray-900 text-white p-2 mt-auto text-center">
+    <div class="flex flex-1 mx-auto">&copy; DIGITAL HUB</div>
+</footer>
+
+<script>
+function sidebarToggle() {
+    document.getElementById('sidebar').classList.toggle('hidden');
+}
+</script>
 </body>
 </html>

@@ -23,7 +23,7 @@
             <div class="flex justify-between">
                 <div class="p-1 mx-3 inline-flex items-center">
                     <i class="fas fa-bars pr-2 text-white" onclick="sidebarToggle()"></i>
-                    <h1 class="text-white p-2">Logo</h1>
+                    <h1 class="text-white p-2">Digital Hub</h1>
                 </div>
                        <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -35,11 +35,11 @@
                             </x-dropdown-link>
                         </form>
                 <div class="p-1 flex flex-row items-center">
-                    <a href="https://github.com/tailwindadmin/admin" class="text-white p-2 mr-2 no-underline hidden md:block lg:block">Github</a>
+                    {{-- <a href="https://github.com/tailwindadmin/admin" class="text-white p-2 mr-2 no-underline hidden md:block lg:block">Github</a>
 
 
                     <img onclick="profileToggle()" class="inline-block h-8 w-8 rounded-full" src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4" alt="">
-                    <a href="#" onclick="profileToggle()" class="text-white p-2 no-underline hidden md:block lg:block">Adam Wathan</a>
+                    <a href="#" onclick="profileToggle()" class="text-white p-2 no-underline hidden md:block lg:block">Adam Wathan</a> --}}
                     <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute pin-t mt-12 mr-1 pin-r">
                         <ul class="list-reset">
                           <li><a href="#" class="no-underline px-4 py-2 block text-black hover:bg-grey-light">My account</a></li>
@@ -86,7 +86,8 @@
                         </a>
                     </li> --}}
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                <a href="{{ route('team.index') }}" class="text-sm text-nav-item no-underline">
+                <a href="{{ route('team.index') }}" 
+                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                     <i class="fas fa-users float-left mx-2"></i>
                                 Team Members
                             </a>
@@ -97,7 +98,15 @@
                        <a href="{{ url('/dashboard/tables') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fas fa-table float-left mx-2"></i>
-                            Tables
+                            Programs
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{ url('/dashboard/workshops') }}" 
+                        class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-table float-left mx-2"></i>
+                            Workshops
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
@@ -105,7 +114,7 @@
                         <a href="{{ url('/dashboard/ui') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fab fa-uikit float-left mx-2"></i>
-                            Ui components
+                            Sponsors
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
@@ -117,37 +126,7 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
-                        {{-- <li class="w-full h-full py-3 px-2">
-                            <a href="#"
-                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="far fa-file float-left mx-2"></i>
-                                Pages
-                                <span><i class="fa fa-angle-down float-right"></i></span>
-                            </a>
-                            <ul class="list-reset -mx-2 bg-white-medium-dark">
-                                <li class="border-t mt-2 border-light-border w-full h-full px-2 py-3">
-                                    <a href="{{ url('/dashboard/login') }}"
-                                    class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                        Login Page
-                                        <span><i class="fa fa-angle-right float-right"></i></span>
-                                    </a>
-                                </li>
-                                <li class="border-t border-light-border w-full h-full px-2 py-3">
-                                <a href="{{ url('/dashboard/register') }}"
-                                    class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                        Register Page
-                                        <span><i class="fa fa-angle-right float-right"></i></span>
-                                    </a>
-                                </li>
-                                <li class="border-t border-light-border w-full h-full px-2 py-3">
-                                    <a href="{{ url('/dashboard/error') }}"
-                                    class="mx-4 font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                        404 Page
-                                        <span><i class="fa fa-angle-right float-right"></i></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li> --}}
+                       
                 </ul>
 
             </aside>
@@ -406,13 +385,11 @@
             </main> --}}
             <!--/Main-->
         </div>
-        <!--Footer-->
-        <footer class="bg-grey-darkest text-white p-2">
-            <div class="flex flex-1 mx-auto">&copy; My Design</div>
-            <div class="flex flex-1 mx-auto">Distributed by:  <a href="https://themewagon.com/" target=" _blank">Themewagon</a></div>
+       <!--Footer-->
+        <footer class="bg-gray-900 text-white p-2">
+            <div class="flex flex-1 mx-auto">&copy; DIGITAL HUB</div>
         </footer>
         <!--/footer-->
-
     </div>
 
 </div>

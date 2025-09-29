@@ -31,11 +31,11 @@
             <div class="flex justify-between">
                 <div class="p-1 mx-3 inline-flex items-center">
                     <i class="fas fa-bars pr-2 text-white" onclick="sidebarToggle()"></i>
-                    <h1 class="text-white p-2">Logo</h1>
+                    <h1 class="text-white p-2">Digital Hub</h1>
                 </div>
                 <div class="p-1 flex flex-row items-center">
-                    <img onclick="profileToggle()" class="inline-block h-8 w-8 rounded-full" src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4" alt="">
-                    <a href="#" onclick="profileToggle()" class="text-white p-2 no-underline hidden md:block lg:block">Admin</a>
+                    {{-- <img onclick="profileToggle()" class="inline-block h-8 w-8 rounded-full" src="https://avatars0.githubusercontent.com/u/4323180?s=460&v=4" alt="">
+                    <a href="#" onclick="profileToggle()" class="text-white p-2 no-underline hidden md:block lg:block">Admin</a> --}}
                     <div id="ProfileDropDown" class="rounded hidden shadow-md bg-white absolute top-0 mt-12 mr-1 right-0">
                         <ul class="list-reset">
                             <li><a href="#" class="no-underline px-4 py-2 block text-black hover:bg-grey-light">My account</a></li>
@@ -78,25 +78,41 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
-                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                        <a href="{{ url('/dashboard/tables') }}" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                            <i class="fas fa-table float-left mx-2"></i> Tables
+                   <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                       <a href="{{ url('/dashboard/tables') }}"
+                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-table float-left mx-2"></i>
+                            Programs
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                        <a href="{{ url('/dashboard/ui') }}" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                            <i class="fab fa-uikit float-left mx-2"></i> Ui components
+                        <a href="{{ url('/dashboard/workshops') }}" 
+                        class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-table float-left mx-2"></i>
+                            Workshops
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{ url('/dashboard/ui') }}"
+                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fab fa-uikit float-left mx-2"></i>
+                            Sponsors
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
                     <li class="w-full h-full py-3 px-2 border-b border-300-border">
-                        <a href="{{ url('/dashboard/modals') }}" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                            <i class="fas fa-square-full float-left mx-2"></i> Modals
+                        <a href="{{ url('/dashboard/modals') }}"
+                        class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-square-full float-left mx-2"></i>
+                            Contact Messages
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
+                       
                 </ul>
+
             </aside>
             <!-- /Sidebar -->
 
@@ -156,12 +172,11 @@
             <!-- /Main -->
         </div>
 
-        <!-- Footer -->
-        <footer class="bg-grey-darkest text-white p-2 flex justify-between">
-            <div>&copy; My Design</div>
-            <div>Distributed by: <a href="https://themewagon.com/" target="_blank">Themewagon</a></div>
+         <!-- Footer -->
+        <footer class="bg-gray-900 text-white p-2">
+            <div class="flex flex-1 mx-auto">&copy; DIGITAL HUB</div>
         </footer>
-        <!-- /Footer -->
+        <!-- /footer -->
     </div>
 </div>
 
