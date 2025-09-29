@@ -16,7 +16,11 @@ class SponsorshipController extends Controller
         $sponsorships = Sponsorship::all();
         return view('frontend.about', compact('sponsorships'));
     }
-
+ public function publicSpon()
+    {
+        $sponsorships = Sponsorship::all();
+        return view('frontend.features', compact('sponsorships'));
+    }
     /**
      * Show form + table in dashboard UI.
      */

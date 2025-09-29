@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\TeamMember;
 use App\Models\Program; // added to fetch programs for frontend
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\Workshop; 
+use App\Models\Sponsorship;
 class TeamMemberController extends Controller
 {
     // ========================
@@ -101,8 +102,9 @@ class TeamMemberController extends Controller
     {
         $teamMembers = TeamMember::all();
         $programs = Program::latest()->get();
-
-        return view('frontend.index', compact('teamMembers', 'programs'));
+        $workshops = Workshop::latest()->get();
+        $sponsorships=Sponsorship::latest()->get();
+        return view('frontend.index', compact('teamMembers', 'programs', 'workshops','sponsorships'));
     }
       public function frontendteam()
     {
