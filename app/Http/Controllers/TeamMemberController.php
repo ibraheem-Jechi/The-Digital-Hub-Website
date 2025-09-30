@@ -94,13 +94,15 @@ class TeamMemberController extends Controller
 
     // Frontend homepage
     public function frontendIndex()
-    {
-        $teamMembers = TeamMember::all();
-        $programs = Program::latest()->get();
-        $workshops = Workshop::latest()->get();
-        $sponsorships=Sponsorship::latest()->get();
-        return view('frontend.index', compact('teamMembers', 'programs', 'workshops','sponsorships'));
-    }
+{
+    $teamMembers = TeamMember::all();
+    $programs = Program::latest()->get();
+    $workshops = Workshop::latest()->get();
+    $sponsorships = Sponsorship::latest()->get();
+    $faqs = \App\Models\Faq::all(); // make sure to fetch FAQs
+
+    return view('frontend.index', compact('teamMembers', 'programs', 'workshops', 'sponsorships', 'faqs'));
+}
 
     public function frontendteam()
     {
