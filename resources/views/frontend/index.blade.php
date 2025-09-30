@@ -46,61 +46,65 @@
 
     <!-- Abvout Start -->
      
-    <div class="container-fluid about py-5">
-        <div class="container py-5">
-            <div class="row g-5 align-items-center">
-                <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
-                    <div>
-                        <h4 class="text-primary">About Us</h4>
-                        <h1 class="display-5 mb-4">
-                            Digital Hub is a company that aims to connect youth with the modern digital world.
-                        </h1>
-                        <p class="mb-4">
-                            We provide specialized programs that empower young people with essential digital skills, preparing them to enter and thrive in the world of web development.
-                        </p>
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="d-flex">
-                                    <div><i class="fas fa-lightbulb fa-3x text-primary"></i></div>
-                                    <div class="ms-4">
-                                        <h4>Business Consulting</h4>
-                                        <p>Helping businesses grow through digital strategies and smart solutions.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="d-flex">
-                                    <div><i class="bi bi-bookmark-heart-fill fa-3x text-primary"></i></div>
-                                    <div class="ms-4">
-                                        <h4>Years Of Expertise</h4>
-                                        <p>Trusted expertise built through continuous learning and real-world practice.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <a href="#" class="btn btn-primary rounded-pill py-3 px-5 flex-shrink-0">Discover Now</a>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex">
-                                    <i class="fas fa-phone-alt fa-2x text-primary me-4"></i>
-                                    <div>
-                                        <h4>Call Us</h4>
-                                        <p class="mb-0 fs-5" style="letter-spacing: 1px;">+961 81079029</p>
-                                    </div>
+@foreach($abouts as $about)
+<div class="container-fluid about py-5">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
+                <div>
+                    <h4 class="text-primary">{{ $about->subtitle }}</h4>
+                    <h1 class="display-5 mb-4">{{ $about->title }}</h1>
+                    <p class="mb-4">{{ $about->description }}</p>
+
+                    <div class="row g-4">
+                        <!-- Feature 1 -->
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <div><i class="{{ $about->feature_1_icon }} fa-3x text-primary"></i></div>
+                                <div class="ms-4">
+                                    <h4>{{ $about->feature_1_title }}</h4>
+                                    <p>{{ $about->feature_1_description }}</p>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Feature 2 -->
+                        <div class="col-md-6">
+                            <div class="d-flex">
+                                <div><i class="{{ $about->feature_2_icon }} fa-3x text-primary"></i></div>
+                                <div class="ms-4">
+                                    <h4>{{ $about->feature_2_title }}</h4>
+                                    <p>{{ $about->feature_2_description }}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="col-sm-6">
+                            <div class="d-flex">
+                                <i class="{{ $about->feature_3_icon }} fa-2x text-primary me-4"></i>
+                                <div>
+                                    <h4>{{ $about->feature_3_title }}</h4>
+                                    <p class="mb-0 fs-5" style="letter-spacing: 1px;">{{ $about->feature_3_description }}</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
-                    <div class="bg-primary rounded position-relative overflow-hidden">
-                        <img src="{{ asset('img/DigitalHub.jpeg') }}" class="img-fluid rounded w-100" alt="">
-                    </div>
+            </div>
+
+            <div class="col-xl-5 wow fadeInRight" data-wow-delay="0.2s">
+                <div class="bg-primary rounded position-relative overflow-hidden">
+                    <img src="{{ asset('storage/' . $about->image) }}" class="img-fluid rounded w-100" alt="">
                 </div>
             </div>
         </div>
     </div>
-    
+</div>
+@endforeach
+
+
     <!-- About End -->
 
     <!-- Services Start -->

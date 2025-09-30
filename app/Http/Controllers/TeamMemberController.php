@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TeamMember;
 use App\Models\Program;
-use App\Models\Sponsorship; 
-use Illuminate\Support\Facades\Storage;
-use App\Models\Workshop; 
+use App\Models\Sponsorship;
+use App\Models\Workshop;
 use App\Models\Slider;
+use App\Models\About; // ✅ About model
+use Illuminate\Support\Facades\Storage;
 
 class TeamMemberController extends Controller
 {
@@ -94,19 +95,27 @@ class TeamMemberController extends Controller
     // ========================
 
     // Frontend homepage
-   public function frontendIndex()
-{
-    $sliders = Slider::all();
-    $teamMembers = TeamMember::all();
-    $programs = Program::latest()->get();
-    $workshops = Workshop::latest()->get();
-    $sponsorships = Sponsorship::latest()->get();
+    public function frontendIndex()
+    {
+        $sliders = Slider::all();
+        $teamMembers = TeamMember::all();
+        $programs = Program::latest()->get();
+        $workshops = Workshop::latest()->get();
+        $sponsorships = Sponsorship::latest()->get();
+        $abouts = About::all(); // ✅ About entries
 
-    return view('frontend.index', compact('sliders', 'teamMembers', 'programs', 'workshops', 'sponsorships'));
-}
+        return view('frontend.index', compact(
+            'sliders',
+            'teamMembers',
+            'programs',
+            'workshops',
+            'sponsorships',
+            'abouts'
+        ));
+    }
 
-
-    public function frontendteam()
+    // Frontend team page
+    public function frontendTeam()
     {
         $teamMembers = TeamMember::all();
         return view('frontend.team', compact('teamMembers'));
@@ -115,10 +124,11 @@ class TeamMemberController extends Controller
     // Frontend about page
     public function frontendAbout()
     {
+        $abouts = About::all(); // ✅ About entries
         $teamMembers = TeamMember::all();
         $programs = Program::latest()->get();
-        $sponsorships = Sponsorship::all(); // ✅ added
+        $sponsorships = Sponsorship::latest()->get();
 
-        return view('frontend.about', compact('teamMembers', 'programs', 'sponsorships'));
+        return view('frontend.about', compact('abouts', 'teamMembers', 'programs', 'sponsorships'));
     }
 }
