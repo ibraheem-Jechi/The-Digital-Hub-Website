@@ -49,35 +49,46 @@
         <div class="flex flex-1">
             <!--Sidebar-->
             <aside id="sidebar" class="bg-side-nav w-1/2 md:w-1/6 lg:w-1/6 border-r border-side-nav hidden md:block lg:block">
+
                 <ul class="list-reset flex flex-col">
-                    <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                    <li class=" w-full h-full py-3 px-2 border-b border-light-border bg-white">
                         <a href="{{ url('/dashboard') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fas fa-tachometer-alt float-left mx-2"></i>
-                            Das
+                            Dashboard
                             <span><i class="fas fa-angle-right float-right"></i></span>
                         </a>
                     </li>
                     @if(auth()->check() && auth()->user()->role === 'super_admin')
-                        <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                            <a href="{{ url('/dashboard/manage-roles') }}"
-                               class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="fas fa-user-shield float-left mx-2"></i>
-                                Manage Roles
-                                <span><i class="fa fa-angle-right float-right"></i></span>
-                            </a>
-                        </li>
-                    @endif
-                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                        <a href="{{ route('team.index') }}"
+    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+        <a href="{{ url('/dashboard/manage-roles') }}"
+           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+            <i class="fas fa-user-shield float-left mx-2"></i>
+            Manage Roles
+            <span><i class="fa fa-angle-right float-right"></i></span>
+        </a>
+    </li>
+@endif
+
+                    {{-- <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{ url('/dashboard/forms') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                            <i class="fas fa-users float-left mx-2"></i>
-                            Team Members
+                            <i class="fab fa-wpforms float-left mx-2"></i>
+                            Forms
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
-                    </li>
+                    </li> --}}
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                        <a href="{{ url('/dashboard/tables') }}"
+                <a href="{{ route('team.index') }}" 
+                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                    <i class="fas fa-users float-left mx-2"></i>
+                                Team Members
+                            </a>
+                           <span><i class="fa fa-angle-right float-right"></i></span>
+                        </li>
+
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                       <a href="{{ url('/dashboard/tables') }}"
                            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fas fa-table float-left mx-2"></i>
                             Programs
@@ -85,8 +96,8 @@
                         </a>
                     </li>
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                        <a href="{{ url('/dashboard/workshops') }}"
-                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                        <a href="{{ url('/dashboard/workshops') }}" 
+                        class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fas fa-table float-left mx-2"></i>
                             Workshops
                             <span><i class="fa fa-angle-right float-right"></i></span>
@@ -102,13 +113,26 @@
                     </li>
                     <li class="w-full h-full py-3 px-2 border-b border-300-border">
                         <a href="{{ url('/dashboard/modals') }}"
-                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                        class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fas fa-square-full float-left mx-2"></i>
-                            Modals
+                            Contact Messages
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                       <li class="w-full h-full py-3 px-2 border-b border-light-borderbg-white">
+                        <a href="{{ route('faqs.index') }}" class="text-sm text-nav-item no-underline font-bold">
+                            <i class="fas fa-question-circle float-left mx-2"></i> FAQs
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full py-3 px-2 border-b">
+                        <a href="{{ route('offers.index') }}" class="text-sm text-nav-item no-underline hover:font-bold">
+                            <i class="fas fa-tags float-left mx-2"></i> Offers
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
                 </ul>
+
             </aside>
             <!--/Sidebar-->
 

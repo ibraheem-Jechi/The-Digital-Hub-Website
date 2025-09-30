@@ -160,7 +160,20 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
+                      <li class="w-full h-full py-3 px-2 border-b border-light-borderbg-white">
+                        <a href="{{ route('faqs.index') }}" class="text-sm text-nav-item no-underline font-bold">
+                            <i class="fas fa-question-circle float-left mx-2"></i> FAQs
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full py-3 px-2 border-b ">
+                        <a href="{{ route('offers.index') }}" class="text-sm text-nav-item no-underline hover:font-bold">
+                            <i class="fas fa-tags float-left mx-2"></i> Offers
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
                 </ul>
+                
             </aside>
             <!--/Sidebar-->
 

@@ -61,21 +61,18 @@
 
             <div class="flex flex-1">
                 <!--Sidebar-->
-                <aside id="sidebar"
-                    class="bg-side-nav w-1/2 md:w-1/6 lg:w-1/6 border-r border-side-nav hidden md:block lg:block">
-                    <div class="flex">
+                <aside id="sidebar" class="bg-side-nav w-1/2 md:w-1/6 lg:w-1/6 border-r border-side-nav hidden md:block lg:block">
 
-                    </div>
-                    <ul class="list-reset flex flex-col">
-                        <li class=" w-full h-full py-3 px-2 border-b border-light-border ">
-                            <a href="{{ url('/dashboard') }}"
-                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="fas fa-tachometer-alt float-left mx-2"></i>
-                                Dashboard
-                                <span><i class="fas fa-angle-right float-right"></i></span>
-                            </a>
-                        </li>
-                                     @if(auth()->check() && auth()->user()->role === 'super_admin')
+                <ul class="list-reset flex flex-col">
+                    <li class=" w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{ url('/dashboard') }}"
+                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-tachometer-alt float-left mx-2"></i>
+                            Dashboard
+                            <span><i class="fas fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    @if(auth()->check() && auth()->user()->role === 'super_admin')
     <li class="w-full h-full py-3 px-2 border-b border-light-border">
         <a href="{{ url('/dashboard/manage-roles') }}"
            class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
@@ -86,7 +83,14 @@
     </li>
 @endif
 
-        
+                    {{-- <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                        <a href="{{ url('/dashboard/forms') }}"
+                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fab fa-wpforms float-left mx-2"></i>
+                            Forms
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li> --}}
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
                 <a href="{{ route('team.index') }}" 
                 class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
@@ -95,15 +99,16 @@
                             </a>
                            <span><i class="fa fa-angle-right float-right"></i></span>
                         </li>
-                        <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
-                            <a href="{{ url('/dashboard/tables') }}"
-                                class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                                <i class="fas fa-table float-left mx-2"></i>
-                                Programs
-                                <span><i class="fa fa-angle-right float-right"></i></span>
-                            </a>
-                        </li>
-                                            <li class="w-full h-full py-3 px-2 border-b border-light-border">
+
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border bg-white">
+                       <a href="{{ url('/dashboard/tables') }}"
+                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-table float-left mx-2"></i>
+                            Programs
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
                         <a href="{{ url('/dashboard/workshops') }}" 
                         class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
                             <i class="fas fa-table float-left mx-2"></i>
@@ -127,9 +132,21 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
-                        
+                       <li class="w-full h-full py-3 px-2 border-b border-light-borderbg-white">
+                        <a href="{{ route('faqs.index') }}" class="text-sm text-nav-item no-underline font-bold">
+                            <i class="fas fa-question-circle float-left mx-2"></i> FAQs
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="w-full py-3 px-2 border-b">
+                        <a href="{{ route('offers.index') }}" class="text-sm text-nav-item no-underline hover:font-bold">
+                            <i class="fas fa-tags float-left mx-2"></i> Offers
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
                 </ul>
-                </aside>
+
+            </aside>
                 <!--/Sidebar-->
                 <!--Main-->
                 <main class="bg-white-500 flex-1 p-3 overflow-hidden">
