@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\TeamMember;
 use App\Models\Program;
 use App\Models\Sponsorship; 
+use App\Models\Offer;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Workshop; 
 
@@ -93,16 +94,26 @@ class TeamMemberController extends Controller
     // ========================
 
     // Frontend homepage
-    public function frontendIndex()
+public function frontendIndex()
 {
     $teamMembers = TeamMember::all();
     $programs = Program::latest()->get();
     $workshops = Workshop::latest()->get();
     $sponsorships = Sponsorship::latest()->get();
-    $faqs = \App\Models\Faq::all(); // make sure to fetch FAQs
+    $offers = Offer::all(); // fetch all offers
+    $faqs = \App\Models\Faq::all(); // fetch FAQs
 
-    return view('frontend.index', compact('teamMembers', 'programs', 'workshops', 'sponsorships', 'faqs'));
+    // include $offers in compact
+    return view('frontend.index', compact(
+        'teamMembers',
+        'programs',
+        'workshops',
+        'sponsorships',
+        'offers',   // <-- added this
+        'faqs'
+    ));
 }
+
 
     public function frontendteam()
     {

@@ -135,6 +135,12 @@
                         </a>
                     </li>
                        
+                    <li class="w-full py-3 px-2 border-b">
+                        <a href="{{ route('offers.index') }}" class="text-sm text-nav-item no-underline hover:font-bold">
+                            <i class="fas fa-tags float-left mx-2"></i> Offers
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
                 </ul>
 
             </aside>

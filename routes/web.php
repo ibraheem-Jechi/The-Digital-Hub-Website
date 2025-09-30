@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SponsorshipController;
+use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\FaqController;
 
 
@@ -59,8 +60,7 @@ Route::get('/features', [SponsorshipController::class, 'publicSpon'])->name('fro
 Route::get('/contact', fn() => view('frontend.contact'))->name('frontend.contact');
 
 Route::get('/testimonial', fn() => view('frontend.testimonial'))->name('frontend.testimonial');
-Route::get('/offer', fn() => view('frontend.offer'))->name('frontend.offer');
-Route::get('/FAQ', [FaqController::class, 'frontendIndex'])->name('frontend.faqs');
+Route::get('/offer', [OfferController::class, 'frontendIndex'])->name('frontend.offer');Route::get('/FAQ', [FaqController::class, 'frontendIndex'])->name('frontend.faqs');
 Route::get('/404', fn() => view('frontend.404'))->name('frontend.404');
 
 /*
@@ -79,6 +79,8 @@ Route::get('/dashboard/error', [ContactController::class, 'adminIndex'])->name('
 Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::prefix('dashboard')->group(function () {
+    // Offers CRUD
+    Route::resource('offers', \App\Http\Controllers\Admin\OfferController::class);
         Route::view('/', 'dashboard.dashboard')->name('dashboard');
         Route::view('/forms', 'dashboard.forms');
         Route::view('/modals', 'dashboard.modals');
