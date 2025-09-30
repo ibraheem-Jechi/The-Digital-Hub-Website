@@ -22,7 +22,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view('dashboard.sliders.create');
+        return view('dashboard.Sliders.create');
     }
 
     /**
@@ -53,7 +53,7 @@ class SliderController extends Controller
     public function edit(string $id)
     {
         $slider = Slider::findOrFail($id);
-        return view('dashboard.sliders.edit', compact('slider'));
+        return view('dashboard.Sliders.edit', compact('slider'));
     }
 
     /**
