@@ -9,6 +9,9 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SponsorshipController;
+use App\Http\Controllers\Admin\FaqController;
+
+
 use App\Models\Sponsorship;
 use App\Models\TeamMember;
 
@@ -57,7 +60,7 @@ Route::get('/contact', fn() => view('frontend.contact'))->name('frontend.contact
 
 Route::get('/testimonial', fn() => view('frontend.testimonial'))->name('frontend.testimonial');
 Route::get('/offer', fn() => view('frontend.offer'))->name('frontend.offer');
-Route::get('/FAQ', fn() => view('frontend.faqs'))->name('frontend.faqs');
+Route::get('/FAQ', [FaqController::class, 'frontendIndex'])->name('frontend.faqs');
 Route::get('/404', fn() => view('frontend.404'))->name('frontend.404');
 
 /*
@@ -93,6 +96,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/sponsorships/{id}/edit', [SponsorshipController::class, 'edit'])->name('sponsorships.edit');
         Route::put('/sponsorships/{id}', [SponsorshipController::class, 'update'])->name('sponsorships.update');
         Route::delete('/sponsorships/{id}', [SponsorshipController::class, 'destroy'])->name('sponsorships.destroy');
+
+            // FAQs CRUD
+        Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
+        Route::get('/faqs/create', [FaqController::class, 'create'])->name('faqs.create');
+        Route::post('/faqs', [FaqController::class, 'store'])->name('faqs.store');
+        Route::get('/faqs/{id}/edit', [FaqController::class, 'edit'])->name('faqs.edit');
+        Route::put('/faqs/{id}', [FaqController::class, 'update'])->name('faqs.update');
+        Route::delete('/faqs/{id}', [FaqController::class, 'destroy'])->name('faqs.destroy');
 
         // Super admin role management
         Route::get('/manage-roles', [RoleController::class, 'index']);
