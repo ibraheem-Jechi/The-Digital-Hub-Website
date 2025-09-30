@@ -8,6 +8,7 @@ use App\Models\Program;
 use App\Models\Sponsorship; 
 use Illuminate\Support\Facades\Storage;
 use App\Models\Workshop; 
+use App\Models\Slider;
 
 class TeamMemberController extends Controller
 {
@@ -93,14 +94,17 @@ class TeamMemberController extends Controller
     // ========================
 
     // Frontend homepage
-    public function frontendIndex()
-    {
-        $teamMembers = TeamMember::all();
-        $programs = Program::latest()->get();
-        $workshops = Workshop::latest()->get();
-        $sponsorships=Sponsorship::latest()->get();
-        return view('frontend.index', compact('teamMembers', 'programs', 'workshops','sponsorships'));
-    }
+   public function frontendIndex()
+{
+    $sliders = Slider::all();
+    $teamMembers = TeamMember::all();
+    $programs = Program::latest()->get();
+    $workshops = Workshop::latest()->get();
+    $sponsorships = Sponsorship::latest()->get();
+
+    return view('frontend.index', compact('sliders', 'teamMembers', 'programs', 'workshops', 'sponsorships'));
+}
+
 
     public function frontendteam()
     {

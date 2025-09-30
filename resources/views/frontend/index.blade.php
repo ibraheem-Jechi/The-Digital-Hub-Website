@@ -10,88 +10,37 @@
     
 
 
-    <!-- Carousel Start -->
-    <div class="header-carousel owl-carousel">
+   <!-- Carousel Start -->
+<div class="header-carousel owl-carousel">
+    @foreach($sliders as $slider)
         <div class="header-carousel-item">
-            <img src="img/carousel-1.jpg" class="img-fluid w-100" alt="Image">
+            <img src="{{ asset('storage/' . $slider->background_image) }}" class="img-fluid w-100" alt="Slider Image">
             <div class="carousel-caption">
                 <div class="container">
                     <div class="row gy-0 gx-5">
                         <div class="col-lg-0 col-xl-5"></div>
                         <div class="col-xl-7 animated fadeInLeft">
                             <div class="text-sm-center text-md-end">
-                                <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome to The Digital Hub</h4>
-                                <h1 class="display-4 text-uppercase text-white mb-4">Gain hands-on experience in coding and
-                                    advance your Digital skills.</h1>
-                                <p class="mb-5 fs-5">Empower yourself with essential digital skills. Our programs, from
-                                    digital literacy to full-stack development, equip you for the future of technology
-                                </p>
-                                <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
-                                    <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i
-                                            class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                    <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="about">Learn
-                                        More</a>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center justify-content-md-end">
-                                    <h2 class="text-white me-2">Follow Us:</h2>
-                                    <div class="d-flex justify-content-end ms-2">
-                                        <a class="btn btn-md-square btn-light rounded-circle me-2" href=""><i
-                                                class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i
-                                                class="fab fa-twitter"></i></a>
-                                        <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i
-                                                class="fab fa-instagram"></i></a>
-                                        <a class="btn btn-md-square btn-light rounded-circle ms-2" href=""><i
-                                                class="fab fa-linkedin-in"></i></a>
+                                <h4 class="text-primary text-uppercase fw-bold mb-4">{{ $slider->title }}</h4>
+                                <h1 class="display-4 text-uppercase text-white mb-4">{{ $slider->subtitle }}</h1>
+                                <p class="mb-5 fs-5">{{ $slider->description }}</p>
+                                @if($slider->video_link)
+                                    <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
+                                        <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="{{ $slider->video_link }}" target="_blank">
+                                            <i class="fas fa-play-circle me-2"></i> Watch Video
+                                        </a>
                                     </div>
-                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="header-carousel-item">
-            <img src="img/carousel-2.jpg" class="img-fluid w-100" alt="Image">
-            <div class="carousel-caption">
-                <div class="container">
-                    <div class="row g-5">
-                        <div class="col-12 animated fadeInUp">
-                            <div class="text-center">
-                                <h4 class="text-primary text-uppercase fw-bold mb-4">Welcome To The Digital Hub</h4>
-                                <h1 class="display-4 text-uppercase text-white mb-4"> Gain hands-on experience in coding and
-                                    advance your Digital skills.</h1>
-                                <p class="mb-5 fs-5">Empower yourself with essential digital skills. Our programs, from
-                                    digital literacy to full-stack development, equip you for the future of technology
-                                </p>
-                                <div class="d-flex justify-content-center flex-shrink-0 mb-4">
-                                    <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i
-                                            class="fas fa-play-circle me-2"></i> Watch Video</a>
-                                    <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="about">Learn
-                                        More</a>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <h2 class="text-white me-2">Follow Us:</h2>
-                                    <div class="d-flex justify-content-end ms-2">
-                                        <a class="btn btn-md-square btn-light rounded-circle me-2" href=""><i
-                                                class="fab fa-facebook-f"></i></a>
-                                        <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i
-                                                class="fab fa-twitter"></i></a>
-                                        <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i
-                                                class="fab fa-instagram"></i></a>
-                                        <a class="btn btn-md-square btn-light rounded-circle ms-2" href=""><i
-                                                class="fab fa-linkedin-in"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Carousel End -->
-    </div>
+    @endforeach
+</div>
+<!-- Carousel End -->
+
     <!-- Navbar & Hero End -->
 
 
@@ -128,9 +77,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <a href="services" class="btn btn-primary rounded-pill py-3 px-5 flex-shrink-0">Discover
-                                    Now</a>
-                            </div>
+                            
                             <div class="col-sm-6">
                                 <div class="d-flex">
                                     <i class="fas fa-phone-alt fa-2x text-primary me-4"></i>

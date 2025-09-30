@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SponsorshipController;
+use App\Http\Controllers\SliderController;
 use App\Models\Sponsorship;
 use App\Models\TeamMember;
 
@@ -17,24 +18,20 @@ use App\Models\TeamMember;
 | Program CRUD Routes
 |--------------------------------------------------------------------------
 */
-// ✅ Public programs page
 Route::get('/programs', [ProgramController::class, 'indexpublic'])->name('programs.public');
 
-// ✅ Dashboard (protected)
 Route::middleware(['auth'])->group(function () {
     Route::resource('programs', ProgramController::class)->except(['show']); 
     Route::get('/dashboard/tables', [ProgramController::class, 'index'])->name('programs.index');
 });
+
 /*
 |--------------------------------------------------------------------------
 | Public Frontend Routes
 |--------------------------------------------------------------------------
 */
-
-// Homepage
 Route::get('/', [TeamMemberController::class, 'frontendIndex'])->name('frontend.index');
 
-// About page with sponsors + team members
 Route::get('/about', function () {
     $sponsorships = Sponsorship::all();
     $teamMembers = TeamMember::all();
@@ -42,19 +39,13 @@ Route::get('/about', function () {
     return view('frontend.about', compact('sponsorships', 'teamMembers'));
 })->name('frontend.about');
 
-// Team page
 Route::get('/team', [TeamMemberController::class, 'frontendteam'])->name('team.public');
-
-// Services
 Route::get('/services', [ProgramController::class, 'indexpublic'])->name('frontend.services');
-
-// Workshops / Blog
 Route::get('/blog', [WorkshopController::class, 'workshops'])->name('frontend.workshops');
 Route::get('/workshops', [WorkshopController::class, 'workshops'])->name('frontend.workshops');
 Route::get('/features', [SponsorshipController::class, 'publicSpon'])->name('frontend.features');
-// Other static frontend pages
-Route::get('/contact', fn() => view('frontend.contact'))->name('frontend.contact');
 
+Route::get('/contact', fn() => view('frontend.contact'))->name('frontend.contact');
 Route::get('/testimonial', fn() => view('frontend.testimonial'))->name('frontend.testimonial');
 Route::get('/offer', fn() => view('frontend.offer'))->name('frontend.offer');
 Route::get('/FAQ', fn() => view('frontend.faqs'))->name('frontend.faqs');
@@ -93,6 +84,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/sponsorships/{id}/edit', [SponsorshipController::class, 'edit'])->name('sponsorships.edit');
         Route::put('/sponsorships/{id}', [SponsorshipController::class, 'update'])->name('sponsorships.update');
         Route::delete('/sponsorships/{id}', [SponsorshipController::class, 'destroy'])->name('sponsorships.destroy');
+
+        // Sliders CRUD
+        Route::resource('sliders', SliderController::class)->except(['show']); 
 
         // Super admin role management
         Route::get('/manage-roles', [RoleController::class, 'index']);
