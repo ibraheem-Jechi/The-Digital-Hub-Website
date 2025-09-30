@@ -7,8 +7,11 @@ use App\Models\TeamMember;
 use App\Models\Program;
 use App\Models\Sponsorship; 
 use App\Models\Offer;
+
+use App\Models\Workshop;
+use App\Models\Slider;
+use App\Models\About; // ✅ About model
 use Illuminate\Support\Facades\Storage;
-use App\Models\Workshop; 
 
 class TeamMemberController extends Controller
 {
@@ -98,9 +101,11 @@ public function frontendIndex()
 {
     $teamMembers = TeamMember::all();
     $programs = Program::latest()->get();
+    $sliders = Slider::all();
     $workshops = Workshop::latest()->get();
     $sponsorships = Sponsorship::latest()->get();
     $offers = Offer::all(); // fetch all offers
+    $abouts = About::all(); // ✅ About entries
     $faqs = \App\Models\Faq::all(); // fetch FAQs
 
     // include $offers in compact
@@ -110,12 +115,15 @@ public function frontendIndex()
         'workshops',
         'sponsorships',
         'offers',   // <-- added this
-        'faqs'
+        'faqs',
+        'abouts',
+          'sliders',
     ));
 }
 
 
-    public function frontendteam()
+    // Frontend team page
+    public function frontendTeam()
     {
         $teamMembers = TeamMember::all();
         return view('frontend.team', compact('teamMembers'));
@@ -124,10 +132,11 @@ public function frontendIndex()
     // Frontend about page
     public function frontendAbout()
     {
+        $abouts = About::all(); // ✅ About entries
         $teamMembers = TeamMember::all();
         $programs = Program::latest()->get();
-        $sponsorships = Sponsorship::all(); // ✅ added
+        $sponsorships = Sponsorship::latest()->get();
 
-        return view('frontend.about', compact('teamMembers', 'programs', 'sponsorships'));
+        return view('frontend.about', compact('abouts', 'teamMembers', 'programs', 'sponsorships'));
     }
 }

@@ -146,6 +146,23 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
+                    <li class="w-full h-full py-3 px-2 border-b border-light-border">
+    <a href="{{ route('sliders.index') }}" 
+       class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+        <i class="fas fa-images float-left mx-2"></i>
+        Sliders
+        <span><i class="fa fa-angle-right float-right"></i></span>
+    </a>
+</li>
+<li class="w-full h-full py-3 px-2 border-b border-light-border">
+    <a href="{{ route('about.index') }}" 
+       class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+        <i class="fas fa-info-circle float-left mx-2"></i>
+        About
+        <span><i class="fa fa-angle-right float-right"></i></span>
+    </a>
+</li>
+                       
                 </ul>
 
             </aside>
