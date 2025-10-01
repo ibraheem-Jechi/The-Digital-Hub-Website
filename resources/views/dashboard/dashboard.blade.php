@@ -165,6 +165,7 @@
                     </li>
 
                 </ul>
+</aside>
 
            
             <!--/Sidebar-->

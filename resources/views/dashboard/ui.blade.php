@@ -73,7 +73,7 @@
 
     <div class="flex flex-1">
         <!-- Sidebar -->
-          <aside id="sidebar" class="bg-side-nav w-1/2 md:w-1/6 lg:w-1/6 border-r border-side-nav hidden md:block lg:block">
+            <aside id="sidebar" class="bg-side-nav w-1/2 md:w-1/6 lg:w-1/6 border-r border-side-nav hidden md:block lg:block">
 
                 <ul class="list-reset flex flex-col">
                     <li class=" w-full h-full py-3 px-2 border-b border-light-border">
@@ -95,14 +95,7 @@
     </li>
 @endif
 
-                    {{-- <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                        <a href="{{ url('/dashboard/forms') }}"
-                           class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                            <i class="fab fa-wpforms float-left mx-2"></i>
-                            Forms
-                            <span><i class="fa fa-angle-right float-right"></i></span>
-                        </a>
-                    </li> --}}
+                    
                     <li class="w-full h-full py-3 px-2 border-b border-light-border">
                 <a href="{{ route('team.index') }}" 
                 class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
@@ -156,32 +149,7 @@
                             <span><i class="fa fa-angle-right float-right"></i></span>
                         </a>
                     </li>
-                </ul>
-
-            </aside>
-                <li class="w-full h-full py-3 px-2 border-b border-light-border">
-                    <a href="{{ url('/dashboard/workshops') }}" 
-                       class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                        <i class="fas fa-table float-left mx-2"></i> Workshops
-                        <span><i class="fa fa-angle-right float-right"></i></span>
-                    </a>
-                </li>
-
-                <li class="w-full h-full py-3 px-2 border-b border-light-border {{ request()->is('dashboard/ui') ? 'bg-white' : '' }}">
-                    <a href="{{ url('/dashboard/ui') }}" class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                        <i class="fab fa-uikit float-left mx-2"></i> Sponsors
-                        <span><i class="fa fa-angle-right float-right"></i></span>
-                    </a>
-                </li>
-
-                <li class="w-full h-full py-3 px-2 border-b border-300-border">
-                    <a href="{{ url('/dashboard/modals') }}"
-                       class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
-                        <i class="fas fa-square-full float-left mx-2"></i> Contact Messages
-                        <span><i class="fa fa-angle-right float-right"></i></span>
-                    </a>
-                </li>
-                <li class="w-full h-full py-3 px-2 border-b border-light-border">
+                       <li class="w-full h-full py-3 px-2 border-b border-light-border">
     <a href="{{ route('sliders.index') }}" 
        class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
         <i class="fas fa-images float-left mx-2"></i>
@@ -197,9 +165,17 @@
         <span><i class="fa fa-angle-right float-right"></i></span>
     </a>
 </li>
+<li class="w-full h-full py-3 px-2 border-b border-300-border">
+                        <a href="{{ url('/dashboard/footer-action') }}"
+                        class="font-sans font-hairline hover:font-normal text-sm text-nav-item no-underline">
+                            <i class="fas fa-square-full float-left mx-2"></i>
+                            Edit footer
+                            <span><i class="fa fa-angle-right float-right"></i></span>
+                        </a>
+                    </li>
 
-            </ul>
-        </aside>
+                </ul>
+</aside>
 
         <!-- Main Content -->
         <main class="flex-1 p-6 bg-white-medium overflow-auto">
