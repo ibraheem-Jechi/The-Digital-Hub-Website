@@ -10,10 +10,21 @@ use App\Http\Controllers\WorkshopController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SponsorshipController;
 use App\Http\Controllers\Admin\FaqController;
-
+use App\Http\Controllers\FrontController;
 
 use App\Models\Sponsorship;
 use App\Models\TeamMember;
+use App\Http\Controllers\FooterController;
+use App\Models\Footer;
+
+
+Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
+    Route::get('footer-action', [FooterController::class, 'action'])->name('footer.action');
+    Route::get('footer/view', [FooterController::class, 'index'])->name('footer.view');
+    Route::get('footer/edit', [FooterController::class, 'edit'])->name('footer.edit');
+    Route::post('footer/update', [FooterController::class, 'update'])->name('footer.update');
+});
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +36,7 @@ Route::get('/programs', [ProgramController::class, 'indexpublic'])->name('progra
 
 // ✅ Dashboard (protected)
 Route::middleware(['auth'])->group(function () {
-    Route::resource('programs', ProgramController::class)->except(['show']); 
+    Route::resource('programs', ProgramController::class)->except(['show']);
     Route::get('/dashboard/tables', [ProgramController::class, 'index'])->name('programs.index');
 });
 /*
@@ -38,12 +49,7 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/', [TeamMemberController::class, 'frontendIndex'])->name('frontend.index');
 
 // About page with sponsors + team members
-Route::get('/about', function () {
-    $sponsorships = Sponsorship::all();
-    $teamMembers = TeamMember::all();
-
-    return view('frontend.about', compact('sponsorships', 'teamMembers'));
-})->name('frontend.about');
+Route::get('/about', [FrontController::class, 'about'])->name('frontend.about');
 
 // Team page
 Route::get('/team', [TeamMemberController::class, 'frontendteam'])->name('team.public');
@@ -56,12 +62,12 @@ Route::get('/blog', [WorkshopController::class, 'workshops'])->name('frontend.wo
 Route::get('/workshops', [WorkshopController::class, 'workshops'])->name('frontend.workshops');
 Route::get('/features', [SponsorshipController::class, 'publicSpon'])->name('frontend.features');
 // Other static frontend pages
-Route::get('/contact', fn() => view('frontend.contact'))->name('frontend.contact');
+Route::get('/contact', [ContactController::class, 'contact'])->name('frontend.contact');
 
 Route::get('/testimonial', fn() => view('frontend.testimonial'))->name('frontend.testimonial');
-Route::get('/offer', fn() => view('frontend.offer'))->name('frontend.offer');
+Route::get('/offer', [FaqController::class, 'offer'])->name('frontend.offer');
 Route::get('/FAQ', [FaqController::class, 'frontendIndex'])->name('frontend.faqs');
-Route::get('/404', fn() => view('frontend.404'))->name('frontend.404');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -97,7 +103,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::put('/sponsorships/{id}', [SponsorshipController::class, 'update'])->name('sponsorships.update');
         Route::delete('/sponsorships/{id}', [SponsorshipController::class, 'destroy'])->name('sponsorships.destroy');
 
-            // FAQs CRUD
+        // FAQs CRUD
         Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
         Route::get('/faqs/create', [FaqController::class, 'create'])->name('faqs.create');
         Route::post('/faqs', [FaqController::class, 'store'])->name('faqs.store');

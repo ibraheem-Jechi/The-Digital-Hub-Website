@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Workshop;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\Footer;
 class WorkshopController extends Controller
 {
     // Frontend: show workshops in blog page
     public function workshops()
     {
+        $footer = Footer::first(); 
         $workshops = Workshop::latest()->get();
-        return view('frontend.blog', compact('workshops'));
+        return view('frontend.blog', compact('workshops','footer'));
     }
 
     // Dashboard: list all workshops

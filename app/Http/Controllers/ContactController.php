@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
-
+use App\Models\Footer;
 class ContactController extends Controller
 {
     public function store(Request $request)
@@ -25,7 +25,14 @@ class ContactController extends Controller
 
     public function adminIndex()
     {
+        
         $messages = Contact::latest()->paginate(20);
         return view('dashboard.error', compact('messages'));
+    }
+      public function contact()
+    {
+        $footer = Footer::first(); 
+        $messages = Contact::latest()->paginate(20);
+        return view('frontend.contact', compact('messages','footer'));
     }
 }

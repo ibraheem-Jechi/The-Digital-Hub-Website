@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\Footer;
 class ProgramController extends Controller
 {
 
     public function indexpublic()
     {
+        $footer = Footer::first();    
         $programs = Program::latest()->get();
-        return view('frontend.services', compact('programs'));
+        return view('frontend.services', compact('programs','footer'));
     }
     public function index()
     {

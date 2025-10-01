@@ -8,7 +8,7 @@ use App\Models\Program;
 use App\Models\Sponsorship; 
 use Illuminate\Support\Facades\Storage;
 use App\Models\Workshop; 
-
+use App\Models\Footer; 
 class TeamMemberController extends Controller
 {
     // ========================
@@ -100,14 +100,15 @@ class TeamMemberController extends Controller
     $workshops = Workshop::latest()->get();
     $sponsorships = Sponsorship::latest()->get();
     $faqs = \App\Models\Faq::all(); // make sure to fetch FAQs
-
-    return view('frontend.index', compact('teamMembers', 'programs', 'workshops', 'sponsorships', 'faqs'));
+    $footer = Footer::first();
+    return view('frontend.index', compact('teamMembers', 'programs', 'workshops', 'sponsorships', 'faqs','footer'));
 }
 
     public function frontendteam()
     {
+          $footer = Footer::first();
         $teamMembers = TeamMember::all();
-        return view('frontend.team', compact('teamMembers'));
+        return view('frontend.team', compact('teamMembers','footer'));
     }
 
     // Frontend about page

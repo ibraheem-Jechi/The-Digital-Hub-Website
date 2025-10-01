@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\TeamMember;
 use App\Models\Workshop;
 use App\Models\Program;
+use App\Models\Sponsorship;  // Added Sponsorship model
+use App\Models\Footer;       // Added Footer model
+
 class FrontController extends Controller
 {
     // Home page
@@ -27,8 +30,12 @@ class FrontController extends Controller
     // About page
     public function about()
     {
-        $teamMembers = TeamMember::all();
-        return view('frontend.about', compact('teamMembers'));
+        // Fetch the necessary data for the About page
+        $sponsorships = Sponsorship::all();  // Getting all sponsorships
+        $teamMembers = TeamMember::all();   // Getting all team members
+        $footer = Footer::first();          // Getting the first footer data
+
+        return view('frontend.about', compact('sponsorships', 'teamMembers', 'footer'));
     }
 
     // Services page
@@ -78,7 +85,4 @@ class FrontController extends Controller
     {
         return view('frontend.404');
     }
-
 }
-
-

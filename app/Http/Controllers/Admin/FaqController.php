@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Faq;
 use Illuminate\Http\Request;
-
+use App\Models\Footer;
 class FaqController extends Controller
 {
     public function index()
@@ -59,9 +59,14 @@ class FaqController extends Controller
 
     public function frontendIndex()
 {
+    $footer = Footer::first(); 
     $faqs = Faq::all();
     
-    return view('frontend.faqs', compact('faqs'));
+    return view('frontend.faqs', compact('faqs','footer'));
 }
-
+    public function offer()
+    {
+        $footer = Footer::first(); 
+        return view('frontend.offer',compact('footer'));
+    }
 }
