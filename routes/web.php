@@ -11,29 +11,64 @@ use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\SponsorshipController;
 use App\Http\Controllers\Admin\OfferController;
 use App\Http\Controllers\Admin\FaqController;
-
+use App\Http\Controllers\FrontController;
 
 use App\Models\Sponsorship;
 use App\Models\TeamMember;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\AboutController;
 
+
+use App\Http\Controllers\FooterController;
+use App\Models\Footer;
+
+
+Route::middleware(['auth'])->prefix('dashboard')->name('dashboard.')->group(function () {
+    Route::get('footer-action', [FooterController::class, 'action'])->name('footer.action');
+    Route::get('footer/view', [FooterController::class, 'index'])->name('footer.view');
+    Route::get('footer/edit', [FooterController::class, 'edit'])->name('footer.edit');
+    Route::post('footer/update', [FooterController::class, 'update'])->name('footer.update');
+});
+
+
+
+// |--------------------------------------------------------------------------
+// | Program CRUD Routes
+// |--------------------------------------------------------------------------
+
+// ✅ Public programs page
+Route::get('/programs', [ProgramController::class, 'indexpublic'])->name('programs.public');
+
+// ✅ Dashboard (protected)
+Route::middleware(['auth'])->group(function () {
+    Route::resource('programs', ProgramController::class)->except(['show']);
+    Route::get('/dashboard/tables', [ProgramController::class, 'index'])->name('programs.index');
+});
 /*
 |--------------------------------------------------------------------------
 | Public Frontend Routes
 |--------------------------------------------------------------------------
 */
 Route::get('/', [TeamMemberController::class, 'frontendIndex'])->name('frontend.index');
-Route::get('/about', [TeamMemberController::class, 'frontendAbout'])->name('frontend.about');
-Route::get('/team', [TeamMemberController::class, 'frontendTeam'])->name('team.public');
+
+// About page with sponsors + team members
+Route::get('/about', [FrontController::class, 'about'])->name('frontend.about');
+
+// Team page
+Route::get('/team', [TeamMemberController::class, 'frontendteam'])->name('team.public');
+
+// Services
 Route::get('/services', [ProgramController::class, 'indexpublic'])->name('frontend.services');
 Route::get('/blog', [WorkshopController::class, 'workshops'])->name('frontend.workshops');
 Route::get('/workshops', [WorkshopController::class, 'workshops'])->name('frontend.workshops');
 Route::get('/features', [SponsorshipController::class, 'publicSpon'])->name('frontend.features');
-Route::get('/contact', fn() => view('frontend.contact'))->name('frontend.contact');
+// Other static frontend pages
+Route::get('/contact', [ContactController::class, 'contact'])->name('frontend.contact');
+
 Route::get('/testimonial', fn() => view('frontend.testimonial'))->name('frontend.testimonial');
-Route::get('/offer', [OfferController::class, 'frontendIndex'])->name('frontend.offer');Route::get('/FAQ', [FaqController::class, 'frontendIndex'])->name('frontend.faqs');
-Route::get('/404', fn() => view('frontend.404'))->name('frontend.404');
+Route::get('/offer', [FaqController::class, 'offer'])->name('frontend.offer');
+Route::get('/FAQ', [FaqController::class, 'frontendIndex'])->name('frontend.faqs');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -48,11 +83,10 @@ Route::get('/dashboard/error', [ContactController::class, 'adminIndex'])->name('
 | Program Public Route
 |--------------------------------------------------------------------------
 */
-Route::get('/programs', [ProgramController::class, 'indexpublic'])->name('programs.public');
 
     Route::prefix('dashboard')->group(function () {
     // Offers CRUD
-    Route::resource('offers', \App\Http\Controllers\Admin\OfferController::class);
+    Route::resource('offers', OfferController::class);
         Route::view('/', 'dashboard.dashboard')->name('dashboard');
         Route::view('/forms', 'dashboard.forms');
         Route::view('/modals', 'dashboard.modals');
@@ -70,7 +104,7 @@ Route::get('/programs', [ProgramController::class, 'indexpublic'])->name('progra
     Route::view('/404', 'dashboard.error');
     Route::view('/login', 'dashboard.login');
 
-            // FAQs CRUD
+        // FAQs CRUD
         Route::get('/faqs', [FaqController::class, 'index'])->name('faqs.index');
         Route::get('/faqs/create', [FaqController::class, 'create'])->name('faqs.create');
         Route::post('/faqs', [FaqController::class, 'store'])->name('faqs.store');

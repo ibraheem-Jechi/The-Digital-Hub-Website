@@ -13,6 +13,8 @@ use App\Models\Slider;
 use App\Models\About; // ✅ About model
 use Illuminate\Support\Facades\Storage;
 
+
+use App\Models\Footer; 
 class TeamMemberController extends Controller
 {
     // ========================
@@ -107,6 +109,7 @@ public function frontendIndex()
     $offers = Offer::all(); // fetch all offers
     $abouts = About::all(); // ✅ About entries
     $faqs = \App\Models\Faq::all(); // fetch FAQs
+    $footer = Footer::first();
 
     // include $offers in compact
     return view('frontend.index', compact(
@@ -118,6 +121,7 @@ public function frontendIndex()
         'faqs',
         'abouts',
           'sliders',
+          'footer'
     ));
 }
 
@@ -125,8 +129,9 @@ public function frontendIndex()
     // Frontend team page
     public function frontendTeam()
     {
+          $footer = Footer::first();
         $teamMembers = TeamMember::all();
-        return view('frontend.team', compact('teamMembers'));
+        return view('frontend.team', compact('teamMembers','footer'));
     }
 
     // Frontend about page

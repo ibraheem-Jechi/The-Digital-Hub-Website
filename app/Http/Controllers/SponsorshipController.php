@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Sponsorship;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-
+use App\Models\Footer;
 class SponsorshipController extends Controller
 {
     /**
@@ -18,8 +18,9 @@ class SponsorshipController extends Controller
     }
  public function publicSpon()
     {
+        $footer = Footer::first(); 
         $sponsorships = Sponsorship::all();
-        return view('frontend.features', compact('sponsorships'));
+        return view('frontend.features', compact('sponsorships','footer'));
     }
     /**
      * Show form + table in dashboard UI.
