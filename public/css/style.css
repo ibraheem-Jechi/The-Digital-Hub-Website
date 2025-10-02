@@ -67,7 +67,7 @@
 
 .btn.btn-primary {
     color: white;
-    background-color: blue;
+    background-color: rgb(0, 0, 0);
     border: none;
 }
 
@@ -671,7 +671,7 @@
     transition: 0.5s;
 }
 .text-primary {
-    color: #230ebb !important;
+    color: #000000 !important;
 }
 
 .team .team-item .team-title {
@@ -877,7 +877,7 @@
 
 /*** Footer Start ***/
 .footer {
-    background: var(--bs-secondary);
+    background: rgb(80, 75, 75);
 }
 
 .footer .footer-item {
@@ -887,16 +887,17 @@
 
 .footer .footer-item a {
     line-height: 35px;
-    color: var(--bs-body);
+    color: white;
     transition: 0.5s;
 }
 
 .footer .footer-item p {
     line-height: 35px;
+    color: white;
 }
 
 .footer .footer-item a:hover {
-    color: blue;
+    color: gray;
 }
 
 .footer .footer-item .footer-btn a,

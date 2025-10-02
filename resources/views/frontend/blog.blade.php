@@ -32,7 +32,7 @@
                         <div class="d-flex align-items-center">
 
                             <div class="ms-3">
-                                <h5>Admin</h5>
+                                {{-- <h5>Admin</h5> --}}
                                 <p class="mb-0">{{ \Carbon\Carbon::parse($workshop->event_date)->format('F j, Y') }}</p>
                             </div>
                         </div>

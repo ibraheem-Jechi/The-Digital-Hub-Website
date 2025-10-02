@@ -18,14 +18,13 @@
             <div class="carousel-caption">
                 <div class="container">
                     <div class="row gy-0 gx-5">
-                        <div class="col-lg-0 col-xl-5"></div>
-                        <div class="col-xl-7 animated fadeInLeft">
-                            <div class="text-sm-center text-md-end">
+                        <div class="col-12 animated fadeInUp">
+                            <div class="text-center">
                                 <h4 class="text-primary text-uppercase fw-bold mb-4">{{ $slider->title }}</h4>
                                 <h1 class="display-4 text-uppercase text-white mb-4">{{ $slider->subtitle }}</h1>
                                 <p class="mb-5 fs-5">{{ $slider->description }}</p>
                                 @if($slider->video_link)
-                                    <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
+                                    <div class="d-flex justify-content-center flex-shrink-0 mb-4">
                                         <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="{{ $slider->video_link }}" target="_blank">
                                             <i class="fas fa-play-circle me-2"></i> Watch Video
                                         </a>
@@ -39,6 +38,7 @@
         </div>
     @endforeach
 </div>
+
 <!-- Carousel End -->
 
     <!-- Navbar & Hero End -->
@@ -262,7 +262,7 @@
                         <div class="d-flex align-items-center">
 
                             <div class="ms-3">
-                                <h5>Admin</h5>
+                                {{-- <h5>Admin</h5> --}}
                                 <p class="mb-0">{{ \Carbon\Carbon::parse($workshop->event_date)->format('F j, Y') }}</p>
                             </div>
                         </div>
