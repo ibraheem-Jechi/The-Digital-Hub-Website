@@ -127,6 +127,14 @@
                                             <label for="message">Message</label>
                                         </div>
                                     </div>
+
+                                    <!-- Google reCAPTCHA -->
+                                    <div class="col-12 mt-3 mb-3">
+                                        <div class="d-flex justify-content-center">
+                                            {!! app('captcha')->display() !!}
+                                        </div>
+                                    </div>
+
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                                     </div>
@@ -149,4 +157,8 @@
         </div>
     </div>
     <!-- Contact End -->
+
+    @push('scripts')
+        {!! app('captcha')->renderJs() !!}
+    @endpush
 @endsection
