@@ -84,18 +84,20 @@ Route::get('/dashboard/error', [ContactController::class, 'adminIndex'])->name('
 |--------------------------------------------------------------------------
 */
 
-    Route::prefix('dashboard')->group(function () {
+    Route::prefix('dashboard')->middleware('auth')->group(function () {
     // Offers CRUD
     Route::resource('offers', OfferController::class);
-        Route::view('/', 'dashboard.dashboard')->name('dashboard');
-        Route::view('/forms', 'dashboard.forms');
-        Route::view('/modals', 'dashboard.modals');
-        Route::view('/buttons', 'dashboard.buttons');
-        Route::view('/404', 'dashboard.error');
-        Route::view('/login', 'dashboard.login');
 
-    // Dashboard home
+    // Dashboard pages
     Route::view('/', 'dashboard.dashboard')->name('dashboard');
+    Route::view('/forms', 'dashboard.forms');
+    Route::view('/modals', 'dashboard.modals');
+    Route::view('/buttons', 'dashboard.buttons');
+    Route::view('/404', 'dashboard.error');
+
+// Keep login route outside middleware
+Route::view('/dashboard/login', 'dashboard.login')->name('dashboard.login');
+
 
     // Static dashboard views
     Route::view('/forms', 'dashboard.forms');
