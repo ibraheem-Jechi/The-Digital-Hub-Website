@@ -1,4 +1,4 @@
-# 🌐 Digital Hub Admin Dashboard
+# 🌐 The Digital Hub Website
 
 [![Laravel](https://img.shields.io/badge/Laravel-12.x-red?logo=laravel)](https://laravel.com/)
 [![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.x-38B2AC?logo=tailwind-css)](https://tailwindcss.com/)
