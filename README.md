@@ -20,6 +20,9 @@ The dashboard enables administrators to manage users, roles, teams, workshops, p
 🌍 **Website:** [https://i.imgur.com/knmBpFZ.png] 
 🔐 **Admin Login:** [https://i.imgur.com/U1K6grU.png]  
 
+
+![Home Page](https://i.imgur.com/knmBpFZ.png)
+
 ### 🧭 Dashboard Examples
 - 👥 [User Management](https://i.imgur.com/BF0dZo4.png)
 - 🎓 [Programs Management](https://i.imgur.com/SFB5kbl.png)
